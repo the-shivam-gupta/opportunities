@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities Page</title>
+</head>
+
+<body>
+    <!-- section 1 -->
+    <section id="section1">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: clip;
+            }
+
+            html {
+                overflow-x: clip;
+            }
+
+            #section1 {
+                position: relative;
+                overflow-x: clip;
+                max-width: 100%;
+            }
+
+            #section1>div {
+                position: relative;
+                max-width: 100%;
+                overflow: hidden;
+            }
+
+            #section1 picture {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+            }
+
+            #section1 picture img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+
+            #section1 .site-header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.979vw;
+                padding: 1.979vw 3.125vw;
+            }
+
+            #section1 .site-header__logo {
+                flex-shrink: 0;
+            }
+
+            #section1 .site-header__logo img {
+                display: block;
+                height: 4.688vw;
+                width: auto;
+            }
+
+            #section1 .site-header__nav {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                min-width: 0;
+            }
+
+            #section1 .site-header__nav ul,
+            #section1 .site-header__utility ul {
+                display: flex;
+                align-items: center;
+                gap: 2.083vw;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            #section1 .site-header__nav li,
+            #section1 .site-header__utility li {
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 1.042vw;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 2.604vw;
+                letter-spacing: 0.052vw;
+                white-space: nowrap;
+            }
+
+            #section1 .site-header__nav li a,
+            #section1 .site-header__utility li a {
+                color: inherit;
+                text-decoration: none;
+                padding-bottom: 0.417vw;
+                border-bottom: 0.104vw solid transparent;
+                transition: color 0.2s ease, border-color 0.2s ease;
+            }
+
+            #section1 .site-header__nav li a:hover,
+            #section1 .site-header__utility li a:hover {
+                color: #E7FF00;
+                font-weight: 500;
+                border-bottom-color: #E7FF00;
+            }
+
+            #section1 .site-header__nav li a.is-active {
+                color: #E7FF00;
+                font-weight: 500;
+                border-bottom-color: #E7FF00;
+            }
+
+            #section1 .site-header__utility {
+                display: flex;
+                align-items: center;
+                gap: 0.625vw;
+                flex-shrink: 0;
+            }
+
+            #section1 .site-header__separator {
+                width: 0.052vw;
+                height: 1.302vw;
+                background: rgba(255, 255, 255, 0.6);
+            }
+
+            #section1 .site-header__icons {
+                display: flex;
+                align-items: center;
+                gap: 0.625vw;
+            }
+
+            #section1 .site-header__icons a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #section1 .site-header__icons img {
+                display: block;
+                width: 1.146vw;
+                height: 1.146vw;
+            }
+
+            #section1 .site-header__menu {
+                margin-left: auto;
+                flex-shrink: 0;
+            }
+
+            #section1 .site-header__menu-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.833vw;
+                padding: 0.417vw 0.833vw;
+                border: 0.052vw solid rgba(255, 255, 255, 0.8);
+                border-radius: 999px;
+                background: transparent;
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 1.042vw;
+                font-weight: 600;
+                letter-spacing: 0.052vw;
+                line-height: 1;
+                cursor: pointer;
+            }
+
+            #section1 .site-header__menu-btn img {
+                width: 1.354vw;
+                height: 1.354vw;
+            }
+
+            @media (min-width: 1024px) and (max-width: 1440px) {
+                #section1 .site-header {
+                    padding: 0.833vw 1.389vw;
+                    gap: 1.389vw;
+                }
+
+                #section1 .site-header__logo img {
+                    height: 3.472vw;
+                }
+
+                #section1 .site-header__nav ul,
+                #section1 .site-header__utility ul {
+                    gap: 1.042vw;
+                }
+
+                #section1 .site-header__nav li,
+                #section1 .site-header__utility li {
+                    font-size: 0.972vw;
+                    line-height: 2.083vw;
+                    letter-spacing: 0.035vw;
+                }
+
+                #section1 .site-header__utility {
+                    gap: 0.556vw;
+                }
+
+                #section1 .site-header__separator {
+                    height: 1.25vw;
+                }
+
+                #section1 .site-header__icons {
+                    gap: 0.556vw;
+                }
+
+                #section1 .site-header__icons img {
+                    width: 1.25vw;
+                    height: 1.25vw;
+                }
+
+                #section1 .site-header__menu-btn {
+                    gap: 0.556vw;
+                    padding: 0.417vw 0.833vw;
+                    font-size: 0.972vw;
+                }
+
+                #section1 .site-header__menu-btn img {
+                    width: 1.25vw;
+                    height: 1.25vw;
+                }
+            }
+
+            @media (max-width: 768px) {
+                #section1 .site-header__nav {
+                    display: none;
+                }
+
+                #section1 .site-header {
+                    padding: 2.083vw 2.604vw;
+                }
+
+                #section1 .site-header__utility {
+                    display: none;
+                }
+
+                #section1 .site-header__logo img {
+                    height: 9.115vw;
+                }
+
+                #section1 .site-header__menu-btn {
+                    padding: 1.302vw 2.083vw;
+                    gap: 1.042vw;
+                    font-size: 2.083vw;
+                }
+
+                #section1 .site-header__menu-btn img {
+                    width: 2.604vw;
+                    height: 2.604vw;
+                }
+            }
+
+            @media (max-width: 425px) {
+                #section1 .site-header__menu-btn {
+                    padding: 1.412vw 2.824vw;
+                    gap: 1.882vw;
+                    font-size: 3.765vw;
+                }
+
+                #section1 .site-header__menu-btn img {
+                    width: 4.706vw;
+                    height: 4.706vw;
+                }
+            }
+
+            #section1 .banner-search {
+                position: relative;
+                z-index: 5;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 100%;
+                max-width: 100%;
+                padding: 8.333vw 5.646vw 3.125vw;
+                pointer-events: none;
+            }
+
+            #section1 .banner-search>* {
+                pointer-events: auto;
+                max-width: 100%;
+            }
+
+            #section1 .banner-search__title {
+                margin: 0 0 2.083vw;
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 3.125vw;
+                font-weight: 700;
+                line-height: 1.15;
+                max-width: 100%;
+            }
+
+            #section1 .banner-search__form {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #section1 .banner-search__fields {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #section1 .banner-search__row {
+                display: flex;
+                align-items: flex-end;
+                flex-wrap: wrap;
+                gap: 1.042vw;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #section1 .banner-search__field {
+                flex: 1 1 15.625vw;
+                min-width: 0;
+                max-width: 100%;
+            }
+
+            #section1 .banner-search__field--location {
+                flex: 1;
+            }
+
+            #section1 .banner-search__field label {
+                display: block;
+                margin-bottom: 0.417vw;
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 500;
+                line-height: 1.4;
+            }
+
+            #section1 .banner-search__field input {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                border: none;
+                border-radius: 0.313vw;
+                padding: 0.833vw 1.042vw;
+                background: #FFF;
+                color: #1A1A1A;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 400;
+                line-height: 1.4;
+            }
+
+            #section1 .banner-search__field input::placeholder {
+                color: #999;
+            }
+
+            #section1 .banner-search__more {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.313vw;
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 500;
+                text-decoration: none;
+            }
+
+            #section1 .banner-search__extras {
+                display: flex;
+                gap: 1.042vw;
+                margin-top: 1.625vw;
+            }
+
+            #section1 .banner-search__extras-spacer {
+                flex: 1;
+                min-width: 0;
+            }
+
+            #section1 .banner-search__more::after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-left: 0.313vw solid transparent;
+                border-right: 0.313vw solid transparent;
+                border-top: 0.417vw solid #FFF;
+            }
+
+            #section1 .banner-search__more:hover {
+                text-decoration: underline;
+            }
+
+            #section1 .banner-search__actions {
+                display: flex;
+                align-items: center;
+                gap: 1.042vw;
+                flex-shrink: 0;
+                padding-bottom: 0;
+            }
+
+            #section1 .banner-search__submit {
+                border: none;
+                border-radius: 0.313vw;
+                padding: 0.833vw 1.563vw;
+                background: #21C25C;
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 0.938vw;
+                font-weight: 700;
+                line-height: 1.4;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+
+            #section1 .banner-search__submit:hover {
+                background: #00B34A;
+            }
+
+            #section1 .banner-search__clear {
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 500;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+
+            #section1 .banner-search__clear:hover {
+                text-decoration: underline;
+            }
+
+            @media (min-width: 1024px) and (max-width: 1440px) {
+                #section1 .banner-search {
+                    padding: 7.292vw 5.646vw 2.778vw;
+                }
+
+                #section1 .banner-search__title {
+                    font-size: 2.778vw;
+                    margin-bottom: 1.736vw;
+                }
+
+                #section1 .banner-search__field label,
+                #section1 .banner-search__field input,
+                #section1 .banner-search__more,
+                #section1 .banner-search__clear {
+                    font-size: 0.972vw;
+                }
+
+                #section1 .banner-search__submit {
+                    font-size: 0.972vw;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                #section1 .banner-search {
+                    padding: 7.813vw 3.125vw 3.125vw;
+                }
+
+                #section1 .banner-search__title {
+                    font-size: 4.167vw;
+                    margin-bottom: 2.604vw;
+                }
+
+                #section1 .banner-search__row {
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 2.083vw;
+                }
+
+                #section1 .banner-search__field {
+                    flex: 1 1 auto;
+                    width: 100%;
+                }
+
+                #section1 .banner-search__field label,
+                #section1 .banner-search__field input,
+                #section1 .banner-search__more,
+                #section1 .banner-search__clear {
+                    font-size: 1.563vw;
+                }
+
+                #section1 .banner-search__field input {
+                    padding: 1.563vw 2.083vw;
+                }
+
+                #section1 .banner-search__actions {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+
+                #section1 .banner-search__submit {
+                    font-size: 1.75vw;
+                    padding: 1.563vw 2.604vw;
+                }
+
+                #section1 .banner-search__extras {
+                    margin-top: 1.042vw;
+                }
+            }
+
+            @media (max-width: 768px) {
+                #section1 .banner-search {
+                    padding: 15vw 3.125vw 3.125vw;
+                }
+
+                #section1 .banner-search__title {
+                    font-size: 5.208vw;
+                    margin-bottom: 3.125vw;
+                }
+
+                #section1 .banner-search__row {
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 2.604vw;
+                }
+
+                #section1 .banner-search__field label {
+                    font-size: 2.083vw;
+                    margin-bottom: 1.042vw;
+                }
+
+                #section1 .banner-search__field input {
+                    font-size: 2.083vw;
+                    padding: 2.083vw 2.604vw;
+                    border-radius: 0.781vw;
+                }
+
+                #section1 .banner-search__more {
+                    font-size: 2.083vw;
+                }
+
+                #section1 .banner-search__actions {
+                    width: 100%;
+                    gap: 2.604vw;
+                    justify-content: flex-start;
+                }
+
+                #section1 .banner-search__submit {
+                    font-size: 2.344vw;
+                    padding: 2.083vw 3.906vw;
+                    border-radius: 0.781vw;
+                }
+
+                #section1 .banner-search__clear {
+                    font-size: 2.083vw;
+                }
+            }
+
+            @media (max-width: 425px) {
+                #section1 .banner-search__title {
+                    font-size: 6.588vw;
+                }
+
+                #section1 .banner-search__field label,
+                #section1 .banner-search__field input,
+                #section1 .banner-search__more,
+                #section1 .banner-search__clear {
+                    font-size: 3.294vw;
+                }
+
+                #section1 .banner-search__submit {
+                    font-size: 3.765vw;
+                }
+            }
+        </style>
+        <div>
+            <header class="site-header">
+                <a class="site-header__logo" href="#" aria-label="Lupin home">
+                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/Lupin_logo_1_9e84fd5125.svg"
+                        alt="Lupin">
+                </a>
+                <nav class="site-header__nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Business</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                </nav>
+                <div class="site-header__utility">
+                    <ul>
+                        <li><a href="#" class="is-active">Careers</a></li>
+                    </ul>
+                    <span class="site-header__separator" aria-hidden="true"></span>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <span class="site-header__separator" aria-hidden="true"></span>
+                    <div class="site-header__icons">
+                        <a href="#" aria-label="Language">
+                            <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/globe_1_3a9080765f.svg"
+                                alt="">
+                        </a>
+                        <span class="site-header__separator" aria-hidden="true"></span>
+                        <a href="#" aria-label="Search">
+                            <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/Search_icon_1_ff3e9cce4f.svg"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="site-header__menu">
+                    <button type="button" class="site-header__menu-btn" aria-label="Open menu">
+                        <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/hamburger_icon_5473136756.svg"
+                            alt="">
+                        Menu
+                    </button>
+                </div>
+            </header>
+            <picture>
+                <source
+                    srcset="https://cmsuatlupin.blob.core.windows.net/public/uploads/opportunity_banner_31ff9f610c.png"
+                    media="(max-width: 425px)" type="image/png">
+                <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/opportunity_banner_31ff9f610c.png"
+                    alt="Banner">
+            </picture>
+            <div class="banner-search">
+                <h1 class="banner-search__title">Search results for</h1>
+                <form class="banner-search__form" action="#" method="get">
+                    <div class="banner-search__fields">
+                        <div class="banner-search__row">
+                            <div class="banner-search__field">
+                                <label for="banner-keyword">Search by Keyword</label>
+                                <input type="text" id="banner-keyword" name="keyword"
+                                    placeholder="Enter keyword job title or skills">
+                            </div>
+                            <div class="banner-search__field banner-search__field--location">
+                                <label for="banner-location">Search by Location</label>
+                                <input type="text" id="banner-location" name="location"
+                                    placeholder="Enter location, city or country">
+                            </div>
+                            <div class="banner-search__actions">
+                                <button type="submit" class="banner-search__submit">Search Jobs</button>
+                                <a href="#" class="banner-search__clear">Clear</a>
+                            </div>
+                        </div>
+                        <div class="banner-search__extras">
+                            <div class="banner-search__extras-spacer">
+                                <a href="#" class="banner-search__more">Show more Options</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- section 2 -->
+    <section id="section2">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+            #section2 {
+                position: relative;
+            }
+
+            #section2>div {
+                position: relative;
+                overflow: hidden;
+            }
+
+            #section2 picture {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+            }
+
+            #section2 picture img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #section2 .search-results {
+                position: relative;
+                z-index: 1;
+                padding: 3.125vw 5.646vw 4.167vw;
+                font-family: Inter, sans-serif;
+            }
+
+            #section2 .search-results__header {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 2.083vw;
+                margin-bottom: 3.083vw;
+            }
+
+            #section2 .search-results__heading h2 {
+                margin: 0 0 0.417vw;
+                color: #FFF;
+                font-size: 2.083vw;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            #section2 .search-results__heading p {
+                margin: 0;
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.938vw;
+                font-weight: 400;
+                line-height: 1.5;
+            }
+
+            #section2 .search-results__heading p strong {
+                color: #5DFFE9;
+                font-weight: 600;
+            }
+
+            #section2 .search-results__filters {
+                display: flex;
+                align-items: center;
+                gap: 0.625vw;
+                flex-shrink: 0;
+            }
+
+            #section2 .search-results__select {
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+
+            #section2 .search-results__select select {
+                appearance: none;
+                -webkit-appearance: none;
+                border: none;
+                border-radius: 0.417vw;
+                background: #FFF;
+                color: #848484;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 500;
+                padding: 0.625vw 2.083vw 0.625vw 0.833vw;
+                cursor: pointer;
+                min-width: 7.813vw;
+            }
+
+            #section2 .search-results__select::after {
+                content: '';
+                position: absolute;
+                right: 0.938vw;
+                top: 50%;
+                width: 0.417vw;
+                height: 0.417vw;
+                border-right: 0.104vw solid #848484;
+                border-bottom: 0.104vw solid #848484;
+                transform: translateY(-65%) rotate(45deg);
+                pointer-events: none;
+            }
+
+            #section2 .search-results__filter-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.417vw;
+                padding: 0.625vw 1.042vw;
+                border: none;
+                border-radius: 0.417vw;
+                background: #17A74D;
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 600;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+
+            #section2 .search-results__filter-btn img {
+                width: 0.938vw;
+                height: 0.938vw;
+                display: block;
+            }
+
+            #section2 .search-results__reset {
+                color: #FFF;
+                font-size: 0.833vw;
+                font-weight: 500;
+                text-decoration: none;
+                padding: 0.625vw 0.417vw;
+                white-space: nowrap;
+            }
+
+            #section2 .search-results__reset:hover {
+                text-decoration: underline;
+            }
+
+            #section2 .search-results__table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+                overflow: hidden;
+                table-layout: fixed;
+            }
+
+            #section2 .search-results__col-title {
+                width: 40%;
+            }
+
+            #section2 .search-results__col-location {
+                width: 40%;
+            }
+
+            #section2 .search-results__col-date {
+                width: 20%;
+            }
+
+            #section2 .search-results__table thead tr {
+                background: #FFF;
+            }
+
+            #section2 .search-results__table th {
+                padding: 1.042vw 1.563vw;
+                color: rgba(10, 10, 10, 0.50);
+                font-size: 0.938vw;
+                font-weight: 600;
+                text-align: left;
+            }
+
+            #section2 .search-results__table td {
+                padding: 1.042vw 1.563vw;
+                color: #D3E4E9;
+                font-size: 0.875vw;
+                font-weight: 500;
+                line-height: 1.4;
+                vertical-align: middle;
+                text-align: left;
+            }
+
+            #section2 .search-results__table tbody tr:nth-child(odd) {
+                background: #1e7a96c2;
+            }
+
+            #section2 .search-results__table tbody tr:nth-child(even) {
+                background: #17406e75;
+            }
+
+            #section2 .search-results__date {
+                text-align: left;
+            }
+
+            #section2 .search-results__date a {
+                color: #D3E4E9;
+                text-decoration: underline;
+                text-underline-offset: 0.25em;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.417vw;
+            }
+
+            #section2 .search-results__date a:hover {
+                opacity: 0.85;
+            }
+
+            #section2 .search-results__date img {
+                width: 0.529vw;
+                height: 0.529vw;
+                display: block;
+            }
+
+            #section2 .search-results__pagination {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.417vw;
+                margin-top: 2.083vw;
+            }
+
+            #section2 .search-results__page-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 2.083vw;
+                height: 2.083vw;
+                padding: 0 0.417vw;
+                border: none;
+                border-radius: 0.313vw;
+                background: #FFF;
+                color: #06283D;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            #section2 .search-results__page-btn.is-active {
+                background: #6BCE59;
+                color: #FFF;
+            }
+
+            #section2 .search-results__page-btn.is-disabled {
+                background: #6A969B;
+                color: #06283D  ;
+                cursor: default;
+            }
+
+            #section2 .search-results__page-btn.is-arrow {
+                font-size: 1.042vw;
+                line-height: 1;
+            }
+
+            @media (max-width: 768px) {
+                #section2 .search-results {
+                    padding: 4.167vw 3.125vw;
+                }
+
+                #section2 .search-results__header {
+                    flex-direction: column;
+                }
+
+                #section2 .search-results__heading h2 {
+                    font-size: 4.167vw;
+                }
+
+                #section2 .search-results__heading p {
+                    font-size: 2.083vw;
+                }
+
+                #section2 .search-results__filters {
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+
+                #section2 .search-results__select select {
+                    font-size: 2.083vw;
+                    padding: 1.563vw 4.167vw 1.563vw 2.083vw;
+                    min-width: 20vw;
+                }
+
+                #section2 .search-results__select::after {
+                    right: 2.083vw;
+                    width: 1.042vw;
+                    height: 1.042vw;
+                    border-right-width: 0.26vw;
+                    border-bottom-width: 0.26vw;
+                }
+
+                #section2 .search-results__filter-btn {
+                    font-size: 2.083vw;
+                    padding: 1.563vw 2.604vw;
+                }
+
+                #section2 .search-results__filter-btn img {
+                    width: 2.604vw;
+                    height: 2.604vw;
+                }
+
+                #section2 .search-results__reset {
+                    font-size: 2.083vw;
+                }
+
+                #section2 .search-results__table th,
+                #section2 .search-results__table td {
+                    font-size: 2.083vw;
+                }
+
+                #section2 .search-results__table th,
+                #section2 .search-results__table td {
+                    padding: 2.083vw;
+                }
+
+                #section2 .search-results__date img {
+                    width: 2.083vw;
+                    height: 2.083vw;
+                }
+
+                #section2 .search-results__page-btn {
+                    min-width: 6.25vw;
+                    height: 6.25vw;
+                    font-size: 2.083vw;
+                }
+            }
+        </style>
+        <div>
+            <picture>
+                <source
+                    srcset="https://cmsuatlupin.blob.core.windows.net/public/uploads/content_bg_image_7f60b9813d.png"
+                    media="(max-width: 425px)" type="image/png">
+                <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/content_bg_image_7f60b9813d.png"
+                    alt="content background image">
+            </picture>
+            <div class="search-results">
+                <div class="search-results__header">
+                    <div class="search-results__heading">
+                        <h2>Search Results</h2>
+                        <p>Showing <strong>1-8</strong> of 83 open positions</p>
+                    </div>
+                    <div class="search-results__filters">
+                        <label class="search-results__select">
+                            <select aria-label="Filter by title">
+                                <option>Title</option>
+                            </select>
+                        </label>
+                        <label class="search-results__select">
+                            <select aria-label="Filter by location">
+                                <option>Location</option>
+                            </select>
+                        </label>
+                        <label class="search-results__select">
+                            <select aria-label="Filter by date">
+                                <option>Date (M/D)</option>
+                            </select>
+                        </label>
+                        <button type="button" class="search-results__filter-btn">
+                            <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/filter_066681bb18.svg"
+                                alt="">
+                            Filter
+                        </button>
+                        <a href="#" class="search-results__reset">Reset</a>
+                    </div>
+                </div>
+
+                <table class="search-results__table">
+                    <colgroup>
+                        <col class="search-results__col-title">
+                        <col class="search-results__col-location">
+                        <col class="search-results__col-date">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chemist III - USA</td>
+                            <td>Details of its business</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Manager - Product</td>
+                            <td>Santacruz, MH, IN</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 22, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Key Account Manager</td>
+                            <td>IRF - HYDERABAD, TG, IN</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Deputy General Manager - Sales Training</td>
+                            <td>Airoli, MH, IN</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Key Account Manager</td>
+                            <td>IRF - HYDERABAD, TG, IN</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Deputy General Manager - Sales Training</td>
+                            <td>Airoli, MH, IN</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Chemist III - USA</td>
+                            <td>Details of its business</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Manager - Product</td>
+                            <td>Santacruz, MH, IN</td>
+                            <td class="search-results__date">
+                                <a href="#">
+                                    May 23, 2026
+                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/arrow_6c71cc0078.svg"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <nav class="search-results__pagination" aria-label="Search results pagination">
+                    <button type="button" class="search-results__page-btn is-arrow is-disabled"
+                        aria-label="Previous page">&#8249;</button>
+                    <button type="button" class="search-results__page-btn is-active" aria-current="page">1</button>
+                    <button type="button" class="search-results__page-btn">2</button>
+                    <button type="button" class="search-results__page-btn">3</button>
+                    <button type="button" class="search-results__page-btn">4</button>
+                    <button type="button" class="search-results__page-btn">5</button>
+                    <button type="button" class="search-results__page-btn">6</button>
+                    <button type="button" class="search-results__page-btn is-arrow"
+                        aria-label="Next page">&#8250;</button>
+                </nav>
+            </div>
+        </div>
+    </section>
+</body>
