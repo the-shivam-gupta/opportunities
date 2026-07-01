@@ -1,0 +1,723 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    .site-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 0.833vw 3.125vw 1.979vw;
+    }
+
+    .site-header__actions {
+        display: flex;
+        align-items: flex-end;
+        gap: 1.979vw;
+        flex-shrink: 0;
+    }
+
+    .site-header__stack {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.417vw;
+    }
+
+    .site-header__top-links {
+        display: flex;
+        align-items: center;
+        gap: 2.083vw;
+    }
+
+    .site-header__top-links a {
+        color: #FFF;
+        font-family: Inter, sans-serif;
+        font-size: 0.833vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.25vw;
+        letter-spacing: 0.021vw;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+    }
+
+    .site-header__top-links a:hover {
+        color: #E7FF00;
+    }
+
+    .site-header__main {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1.979vw;
+        width: 100%;
+    }
+
+    .site-header__logo {
+        flex-shrink: 0;
+    }
+
+    .site-header__logo img {
+        display: block;
+        height: 4.688vw;
+        width: auto;
+    }
+
+    .site-header__nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        min-width: 0;
+    }
+
+    .site-header__nav ul,
+    .site-header__utility > ul {
+        display: flex;
+        align-items: center;
+        gap: 2.083vw;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .site-header__nav li,
+    .site-header__utility > ul > li {
+        color: #FFF;
+        font-family: Inter, sans-serif;
+        font-size: 1.042vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 2.604vw;
+        letter-spacing: 0.052vw;
+        white-space: nowrap;
+    }
+
+    .site-header__nav li a,
+    .site-header__utility > ul > li > a {
+        color: inherit;
+        text-decoration: none;
+        padding-bottom: 0.417vw;
+        border-bottom: 0.154vw solid transparent;
+        transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .site-header__nav li a:hover,
+    .site-header__utility > ul > li > a:hover {
+        color: #E7FF00;
+        font-weight: 500;
+        border-bottom-color: #E7FF00;
+    }
+
+    .site-header__nav li a.is-active {
+        color: #E7FF00;
+        font-weight: 500;
+        border-bottom-color: #E7FF00;
+    }
+
+    .site-header__utility {
+        display: flex;
+        align-items: center;
+        gap: 0.625vw;
+        flex-shrink: 0;
+    }
+
+    .site-header__separator {
+        width: 0.052vw;
+        height: 1.302vw;
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    .site-header__icons {
+        display: flex;
+        align-items: center;
+        gap: 0.625vw;
+    }
+
+    .site-header__icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .site-header__icons img {
+        display: block;
+        width: 1.146vw;
+        height: 1.146vw;
+    }
+
+    .site-header__icons img:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+    }
+
+    .site-header__language {
+        position: relative;
+    }
+
+    .site-header__language-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .site-header__language-menu {
+        position: absolute;
+        top: calc(100% + 0.625vw);
+        right: 0;
+        z-index: 200;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        min-width: 10.417vw;
+        width: max-content;
+        margin: 0;
+        padding: 0.417vw 0;
+        list-style: none;
+        background: #FFF;
+        border-radius: 0.521vw;
+        box-shadow: 0 0.208vw 1.042vw rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.208vw);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+
+    .site-header__language.is-open .site-header__language-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .site-header__language-menu li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        color: #000;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+
+    .site-header__language-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.625vw;
+        width: 100%;
+        padding: 0.521vw 1.042vw;
+        color: #000;
+        font-family: Inter, sans-serif;
+        font-size: 0.833vw;
+        font-weight: 500;
+        line-height: 1.25vw;
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 0;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .site-header__language-menu a:hover,
+    .site-header__language-menu a.is-active {
+        background: #E8F5E9;
+        color: #069C3C;
+    }
+
+    .site-header__language-menu img {
+        display: block;
+        width: 1.25vw;
+        height: 1.25vw;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .site-header__menu {
+        flex-shrink: 0;
+    }
+
+    .site-header__menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.833vw;
+        padding: 0.417vw 0.833vw;
+        border: 0.052vw solid rgba(255, 255, 255, 0.8);
+        border-radius: 999px;
+        background: transparent;
+        color: #FFF;
+        font-family: Inter, sans-serif;
+        font-size: 1.042vw;
+        font-weight: 600;
+        letter-spacing: 0.052vw;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .site-header__menu-btn img {
+        width: 1.354vw;
+        height: 1.354vw;
+    }
+
+    .site-header__drawer {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .site-header__drawer.is-open,
+    .site-header__drawer.is-closing {
+        visibility: visible;
+    }
+
+    .site-header__drawer.is-open {
+        pointer-events: auto;
+    }
+
+    .site-header__drawer.is-closing {
+        pointer-events: none;
+    }
+
+    .site-header__drawer-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+    }
+
+    .site-header__drawer.is-open .site-header__drawer-overlay {
+        opacity: 1;
+    }
+
+    .site-header__drawer-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: min(88vw, 22.917vw);
+        max-width: 100%;
+        height: 100%;
+        background: #FFF;
+        transform: translate3d(100%, 0, 0);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: -0.208vw 0 1.042vw rgba(0, 0, 0, 0.12);
+        will-change: transform;
+    }
+
+    .site-header__drawer-panel.is-panel-open {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .site-header__drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.042vw 1.25vw;
+        border-bottom: 0.052vw solid rgba(0, 0, 0, 0.08);
+    }
+
+    .site-header__drawer-title {
+        margin: 0;
+        color: #069C3C;
+        font-family: Inter, sans-serif;
+        font-size: 1.042vw;
+        font-weight: 700;
+        letter-spacing: 0.052vw;
+    }
+
+    .site-header__drawer-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.083vw;
+        height: 2.083vw;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #333;
+        font-size: 1.667vw;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .site-header__drawer-body {
+        padding: 0.833vw 0 1.667vw;
+    }
+
+    .site-header__drawer-nav ul,
+    .site-header__drawer-links ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .site-header__drawer-nav a,
+    .site-header__drawer-links a {
+        display: block;
+        padding: 0.729vw 1.25vw;
+        color: #1A1A1A;
+        font-family: Inter, sans-serif;
+        font-size: 0.938vw;
+        font-weight: 500;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .site-header__drawer-nav a:hover,
+    .site-header__drawer-links a:hover {
+        background: #E8F5E9;
+        color: #069C3C;
+    }
+
+    .site-header__drawer-section {
+        padding: 0.625vw 0;
+        border-bottom: 0.052vw solid rgba(0, 0, 0, 0.08);
+    }
+
+    .site-header__drawer-section:last-child {
+        border-bottom: 0;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1440px) {
+        .site-header {
+            padding: 0.694vw 1.389vw 0.833vw;
+            gap: 0.278vw;
+        }
+
+        .site-header__top-links {
+            gap: 1.389vw;
+        }
+
+        .site-header__top-links a {
+            font-size: 0.764vw;
+            line-height: 1.111vw;
+        }
+
+        .site-header__main {
+            gap: 1.389vw;
+        }
+
+        .site-header__actions {
+            gap: 1.389vw;
+        }
+
+        .site-header__logo img {
+            height: 3.472vw;
+        }
+
+        .site-header__nav ul,
+        .site-header__utility > ul {
+            gap: 1.042vw;
+        }
+
+        .site-header__nav li,
+        .site-header__utility > ul > li {
+            font-size: 0.972vw;
+            line-height: 2.083vw;
+            letter-spacing: 0.035vw;
+        }
+
+        .site-header__utility {
+            gap: 0.556vw;
+        }
+
+        .site-header__separator {
+            height: 1.25vw;
+        }
+
+        .site-header__icons {
+            gap: 0.556vw;
+        }
+
+        .site-header__icons img {
+            width: 1.25vw;
+            height: 1.25vw;
+        }
+
+        .site-header__language-menu {
+            min-width: 12.5vw;
+        }
+
+        .site-header__language-menu a {
+            font-size: 0.972vw;
+            line-height: 1.458vw;
+            padding: 0.556vw 1.111vw;
+        }
+
+        .site-header__language-menu img {
+            width: 1.458vw;
+            height: 1.458vw;
+        }
+
+        .site-header__menu-btn {
+            gap: 0.556vw;
+            padding: 0.417vw 0.833vw;
+            font-size: 0.972vw;
+        }
+
+        .site-header__menu-btn img {
+            width: 1.25vw;
+            height: 1.25vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .site-header__nav {
+            display: none;
+        }
+
+        .site-header {
+            padding: 2.083vw 2.604vw;
+            gap: 0;
+        }
+
+        .site-header__top-links {
+            display: none;
+        }
+
+        .site-header__utility {
+            display: none;
+        }
+
+        .site-header__drawer-panel {
+            width: min(88vw, 72vw);
+        }
+
+        .site-header__drawer-header {
+            padding: 4.167vw 5.208vw;
+        }
+
+        .site-header__drawer-title {
+            font-size: 3.646vw;
+        }
+
+        .site-header__drawer-close {
+            width: 8.333vw;
+            height: 8.333vw;
+            font-size: 6.25vw;
+        }
+
+        .site-header__drawer-body {
+            padding: 2.083vw 0 5.208vw;
+        }
+
+        .site-header__drawer-nav a,
+        .site-header__drawer-links a {
+            padding: 3.125vw 5.208vw;
+            font-size: 3.125vw;
+        }
+
+        .site-header__logo img {
+            height: 9.115vw;
+        }
+
+        .site-header__menu-btn {
+            padding: 1.302vw 2.083vw;
+            gap: 1.042vw;
+            font-size: 2.083vw;
+        }
+
+        .site-header__menu-btn img {
+            width: 2.604vw;
+            height: 2.604vw;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .site-header__menu-btn {
+            padding: 1.412vw 2.824vw;
+            gap: 1.882vw;
+            font-size: 3.765vw;
+        }
+
+        .site-header__menu-btn img {
+            width: 4.706vw;
+            height: 4.706vw;
+        }
+    }
+</style>
+<header class="site-header">
+    <div class="site-header__main">
+        <a class="site-header__logo" href="#" aria-label="Lupin home">
+            <img src="https://www.lupin.com/uploads/Lupin_logo_1_9e84fd5125.svg"
+                alt="Lupin">
+        </a>
+        <nav class="site-header__nav" aria-label="Main navigation">
+            <ul>
+                <li><a target="_blank" href="https://www.lupin.com/about-us">About Us</a></li>
+                <li><a target="_blank" href="https://www.lupin.com/our-business">Our Business</a></li>
+                <li><a target="_blank" href="https://www.lupin.com/investors">Investors</a></li>
+                <li><a target="_blank" href="https://www.lupin.com/media">Media</a></li>
+                <li><a target="_blank" href="https://www.lupin.com/community">Community</a></li>
+                <li><a target="_blank" href="https://www.lupin.com/sustainability">Sustainability</a></li>
+            </ul>
+        </nav>
+        <div class="site-header__actions">
+            <div class="site-header__stack">
+                <nav class="site-header__top-links" aria-label="Top links">
+                    <a href="#" data-fraud-modal-open>Recruitment Fraud Alert</a>
+                    <a href="https://career8.successfactors.com/careers?company=C0001119306P">Candidate Login</a>
+                </nav>
+                <div class="site-header__utility">
+                    <ul>
+                        <li><a target="_blank" href="https://careers.lupin.com/" class="is-active">Careers</a></li>
+                    </ul>
+                    <span class="site-header__separator" aria-hidden="true"></span>
+                    <ul>
+                        <li><a target="_blank" href="https://www.lupin.com/contact-us">Contact</a></li>
+                    </ul>
+                    <span class="site-header__separator" aria-hidden="true"></span>
+                    <div class="site-header__icons">
+                        <div class="site-header__language">
+                            <button type="button" class="site-header__language-btn" aria-label="Language"
+                                aria-expanded="false" aria-haspopup="true">
+                                <img src="https://www.lupin.com/uploads/globe_1_3a9080765f.svg"
+                                    alt="">
+                            </button>
+                            <ul class="site-header__language-menu" role="menu" aria-label="Language">
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.lupin.com/our-business/india">
+                                        <img src="https://www.lupin.com/uploads/india_ca0dc9a24e.png"
+                                            alt="India flag icon">
+                                        <span>India</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.lupin.com/US" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/usa_48433c6b13.png"
+                                            alt="USA flag icon">
+                                        <span>USA</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.lupinhealthcare.co.uk/"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/great_britain_264e4bd495.png"
+                                            alt="UK flag icon">
+                                        <span>UK</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.mydynamics.co.za/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/assets/country-icons/south-africa.png"
+                                            alt="South Africa flag icon">
+                                        <span>South Africa</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://generichealth.com.au/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/assets/country-icons/australia.png"
+                                            alt="Australia flag icon">
+                                        <span>Australia</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.multicare.com.ph/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/philippines_7327fe815f.png"
+                                            alt="Philippines flag icon">
+                                        <span>Philippines</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.hormosan.com/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/germany_26c13e79c9.png"
+                                            alt="Germany flag icon">
+                                        <span>Germany</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.nanomi.com/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/netherlands_a0276c65cc.png"
+                                            alt="Netherlands flag icon">
+                                        <span>Netherlands</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.laboratoriosgrin.com/"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/mexico_bd04520ac9.png"
+                                            alt="Mexico flag icon">
+                                        <span>Mexico</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://medquimica.ind.br/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/brazil_bba9bcb1ce.png"
+                                            alt="Brazil flag icon">
+                                        <span>Brazil</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://www.lupinpharma.ca/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/canada_563f29b9a0.png"
+                                            alt="Canada flag icon">
+                                        <span>Canada</span>
+                                    </a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" target="_blank" href="https://lupin-neurosciences.com/our-world/"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <img src="https://www.lupin.com/uploads/switzerland_46ecf32666.png"
+                                            alt="Switzerland flag icon">
+                                        <span>Switzerland</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="site-header__separator" aria-hidden="true"></span>
+                        <a href="#" aria-label="Search">
+                            <img src="https://www.lupin.com/uploads/Search_icon_1_ff3e9cce4f.svg"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="site-header__menu">
+                <button type="button" class="site-header__menu-btn" aria-label="Open menu"
+                    aria-expanded="false" aria-controls="section1-mobile-menu" data-mobile-menu-open>
+                    <img src="https://www.lupin.com/uploads/hamburger_icon_5473136756.svg"
+                        alt="">
+                    Menu
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="site-header__drawer" aria-hidden="true">
+    <div class="site-header__drawer-overlay" data-drawer-close></div>
+    <div class="site-header__drawer-panel" id="section1-mobile-menu" role="dialog" aria-modal="true"
+        aria-label="Navigation menu">
+        <div class="site-header__drawer-header">
+            <p class="site-header__drawer-title">Menu</p>
+            <button type="button" class="site-header__drawer-close" data-drawer-close
+                aria-label="Close menu">&times;</button>
+        </div>
+        <div class="site-header__drawer-body">
+            <nav class="site-header__drawer-nav" aria-label="Main navigation">
+                <ul></ul>
+            </nav>
+            <div class="site-header__drawer-section site-header__drawer-links">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+</div>

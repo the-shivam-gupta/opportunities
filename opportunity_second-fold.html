@@ -1,0 +1,490 @@
+<section id="section2">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #section2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        #section2>div {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #section2 picture {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        #section2 picture img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #section2 .search-results {
+            position: relative;
+            z-index: 1;
+            padding: 3.125vw 5.646vw 4.167vw;
+            font-family: Inter, sans-serif;
+        }
+
+        #section2 .search-results__header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2.083vw;
+            margin-bottom: 3.083vw;
+        }
+
+        #section2 .search-results__heading h2 {
+            margin: 0 0 0.417vw;
+            color: #FFF;
+            font-size: 2.083vw;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        #section2 .search-results__heading p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.938vw;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        #section2 .search-results__heading p strong {
+            color: #5DFFE9;
+            font-weight: 600;
+        }
+
+        #section2 .search-results__filters {
+            display: flex;
+            align-items: center;
+            gap: 0.625vw;
+            flex-shrink: 0;
+        }
+
+        #section2 .search-results__select {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        #section2 .search-results__select select {
+            appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            border-radius: 0.417vw;
+            background: #FFF;
+            color: #848484;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 500;
+            padding: 0.625vw 2.083vw 0.625vw 0.833vw;
+            cursor: pointer;
+            min-width: 7.813vw;
+        }
+
+        #section2 .search-results__select::after {
+            content: '';
+            position: absolute;
+            right: 0.938vw;
+            top: 50%;
+            width: 0.417vw;
+            height: 0.417vw;
+            border-right: 0.104vw solid #848484;
+            border-bottom: 0.104vw solid #848484;
+            transform: translateY(-65%) rotate(45deg);
+            pointer-events: none;
+        }
+
+        #section2 .search-results__filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.417vw;
+            padding: 0.625vw 1.042vw;
+            border: none;
+            border-radius: 0.417vw;
+            background: #17A74D;
+            color: #FFF;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        #section2 .search-results__filter-btn img {
+            width: 0.938vw;
+            height: 0.938vw;
+            display: block;
+        }
+
+        #section2 .search-results__reset {
+            color: #FFF;
+            font-size: 0.833vw;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.625vw 0.417vw;
+            white-space: nowrap;
+        }
+
+        #section2 .search-results__reset:hover {
+            text-decoration: underline;
+        }
+
+        #section2 .search-results__table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            overflow: hidden;
+            table-layout: fixed;
+        }
+
+        #section2 .search-results__col-title {
+            width: 40%;
+        }
+
+        #section2 .search-results__col-location {
+            width: 40%;
+        }
+
+        #section2 .search-results__col-date {
+            width: 20%;
+        }
+
+        #section2 .search-results__table thead tr {
+            background: #FFF;
+        }
+
+        #section2 .search-results__table th {
+            padding: 1.042vw 1.563vw;
+            color: rgba(10, 10, 10, 0.50);
+            font-size: 0.938vw;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        #section2 .search-results__table td {
+            padding: 1.042vw 1.563vw;
+            color: #D3E4E9;
+            font-size: 0.875vw;
+            font-weight: 500;
+            line-height: 1.4;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        #section2 .search-results__table tbody tr:nth-child(odd) {
+            background: #1e7a96c2;
+        }
+
+        #section2 .search-results__table tbody tr:nth-child(even) {
+            background: #17406e75;
+        }
+
+        #section2 .search-results__date {
+            text-align: left;
+        }
+
+        #section2 .search-results__date a {
+            color: #D3E4E9;
+            text-decoration: underline;
+            text-underline-offset: 0.25em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.417vw;
+        }
+
+        #section2 .search-results__date a:hover {
+            opacity: 0.85;
+        }
+
+        #section2 .search-results__date img {
+            width: 0.529vw;
+            height: 0.529vw;
+            display: block;
+        }
+
+        #section2 .search-results__pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.417vw;
+            margin-top: 2.083vw;
+        }
+
+        #section2 .search-results__page-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2.083vw;
+            height: 2.083vw;
+            padding: 0 0.417vw;
+            border: none;
+            border-radius: 0.313vw;
+            background: #FFF;
+            color: #06283D;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #section2 .search-results__page-btn.is-active {
+            background: #6BCE59;
+            color: #FFF;
+        }
+
+        #section2 .search-results__page-btn.is-disabled {
+            background: #6A969B;
+            color: #06283D  ;
+            cursor: default;
+        }
+
+        #section2 .search-results__page-btn.is-arrow {
+            font-size: 1.042vw;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            #section2 .search-results {
+                padding: 4.167vw 3.125vw;
+            }
+
+            #section2 .search-results__header {
+                flex-direction: column;
+            }
+
+            #section2 .search-results__heading h2 {
+                font-size: 4.167vw;
+            }
+
+            #section2 .search-results__heading p {
+                font-size: 2.083vw;
+            }
+
+            #section2 .search-results__filters {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            #section2 .search-results__select select {
+                font-size: 2.083vw;
+                padding: 1.563vw 4.167vw 1.563vw 2.083vw;
+                min-width: 20vw;
+            }
+
+            #section2 .search-results__select::after {
+                right: 2.083vw;
+                width: 1.042vw;
+                height: 1.042vw;
+                border-right-width: 0.26vw;
+                border-bottom-width: 0.26vw;
+            }
+
+            #section2 .search-results__filter-btn {
+                font-size: 2.083vw;
+                padding: 1.563vw 2.604vw;
+            }
+
+            #section2 .search-results__filter-btn img {
+                width: 2.604vw;
+                height: 2.604vw;
+            }
+
+            #section2 .search-results__reset {
+                font-size: 2.083vw;
+            }
+
+            #section2 .search-results__table th,
+            #section2 .search-results__table td {
+                font-size: 2.083vw;
+            }
+
+            #section2 .search-results__table th,
+            #section2 .search-results__table td {
+                padding: 2.083vw;
+            }
+
+            #section2 .search-results__date img {
+                width: 2.083vw;
+                height: 2.083vw;
+            }
+
+            #section2 .search-results__page-btn {
+                min-width: 6.25vw;
+                height: 6.25vw;
+                font-size: 2.083vw;
+            }
+        }
+    </style>
+    <div>
+        <picture>
+            <source
+                srcset="https://www.lupin.com/uploads/content_bg_image_7f60b9813d.png"
+                media="(max-width: 425px)" type="image/png">
+            <img src="https://www.lupin.com/uploads/content_bg_image_7f60b9813d.png"
+                alt="content background image">
+        </picture>
+        <div class="search-results">
+            <div class="search-results__header">
+                <div class="search-results__heading">
+                    <h2>Search Results</h2>
+                    <p>Showing <strong>1-8</strong> of 83 open positions</p>
+                </div>
+                <div class="search-results__filters">
+                    <label class="search-results__select">
+                        <select aria-label="Filter by title">
+                            <option>Title</option>
+                        </select>
+                    </label>
+                    <label class="search-results__select">
+                        <select aria-label="Filter by location">
+                            <option>Location</option>
+                        </select>
+                    </label>
+                    <label class="search-results__select">
+                        <select aria-label="Filter by date">
+                            <option>Date (M/D)</option>
+                        </select>
+                    </label>
+                    <button type="button" class="search-results__filter-btn">
+                        <img src="https://www.lupin.com/uploads/filter_066681bb18.svg"
+                            alt="">
+                        Filter
+                    </button>
+                    <a href="#" class="search-results__reset">Reset</a>
+                </div>
+            </div>
+
+            <table class="search-results__table">
+                <colgroup>
+                    <col class="search-results__col-title">
+                    <col class="search-results__col-location">
+                    <col class="search-results__col-date">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chemist III - USA</td>
+                        <td>Details of its business</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Manager - Product</td>
+                        <td>Santacruz, MH, IN</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 22, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Key Account Manager</td>
+                        <td>IRF - HYDERABAD, TG, IN</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Deputy General Manager - Sales Training</td>
+                        <td>Airoli, MH, IN</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Key Account Manager</td>
+                        <td>IRF - HYDERABAD, TG, IN</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Deputy General Manager - Sales Training</td>
+                        <td>Airoli, MH, IN</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Chemist III - USA</td>
+                        <td>Details of its business</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Manager - Product</td>
+                        <td>Santacruz, MH, IN</td>
+                        <td class="search-results__date">
+                            <a href="#">
+                                May 23, 2026
+                                <img src="https://www.lupin.com/uploads/arrow_6c71cc0078.svg"
+                                    alt="">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <nav class="search-results__pagination" aria-label="Search results pagination">
+                <button type="button" class="search-results__page-btn is-arrow is-disabled"
+                    aria-label="Previous page">&#8249;</button>
+                <button type="button" class="search-results__page-btn is-active" aria-current="page">1</button>
+                <button type="button" class="search-results__page-btn">2</button>
+                <button type="button" class="search-results__page-btn">3</button>
+                <button type="button" class="search-results__page-btn">4</button>
+                <button type="button" class="search-results__page-btn">5</button>
+                <button type="button" class="search-results__page-btn">6</button>
+                <button type="button" class="search-results__page-btn is-arrow"
+                    aria-label="Next page">&#8250;</button>
+            </nav>
+        </div>
+    </div>
+</section>

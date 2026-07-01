@@ -1,0 +1,881 @@
+<!-- section 1 -->
+<section id="section1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
+        }
+
+        html {
+            overflow-x: clip;
+        }
+
+        #section1 {
+            position: relative;
+            z-index: 10;
+            overflow-x: clip;
+            max-width: 100%;
+        }
+
+        #section1>div {
+            position: relative;
+            max-width: 100%;
+            overflow: visible;
+        }
+
+        #section1 picture {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        #section1 picture img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        #section1 .fraud-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.083vw;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #section1 .fraud-modal.is-open,
+        #section1 .fraud-modal.is-closing {
+            visibility: visible;
+        }
+
+        #section1 .fraud-modal.is-open {
+            pointer-events: auto;
+        }
+
+        #section1 .fraud-modal.is-closing {
+            pointer-events: none;
+        }
+
+        #section1 .fraud-modal__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(2px);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        #section1 .fraud-modal.is-open .fraud-modal__overlay {
+            opacity: 1;
+        }
+
+        #section1 .fraud-modal__dialog {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 65vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #f8f8f8;
+            border: 0.052vw solid #d9d9d9;
+            box-shadow: 0 0.417vw 1.667vw rgba(0, 0, 0, 0.18);
+            padding: 2.604vw 2.604vw 2.083vw;
+            opacity: 0;
+            transform: scale(0.96) translateY(1.042vw);
+            transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        #section1 .fraud-modal__dialog.is-dialog-open {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        #section1 .fraud-modal__close {
+            position: absolute;
+            top: 1.042vw;
+            right: 1.042vw;
+            border: none;
+            background: transparent;
+            color: #000;
+            font-size: 1.667vw;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0.208vw 0.417vw;
+        }
+
+        #section1 .fraud-modal__title {
+            color: #4b2c85;
+            font-family: Inter, sans-serif;
+            font-size: 1.458vw;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0 2.604vw 1.563vw 0;
+        }
+
+        #section1 .fraud-modal__body {
+            color: #333;
+            font-family: Inter, sans-serif;
+            font-size: 0.700vw;
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        #section1 .fraud-modal__body p {
+            margin: 0 0 1.042vw;
+        }
+
+        #section1 .fraud-modal__body p:last-child {
+            margin-bottom: 0;
+        }
+
+        #section1 .fraud-modal__body a {
+            color: #4b2c85;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        #section1 .fraud-modal__body a:hover {
+            text-decoration: underline;
+        }
+
+        #section1 .fraud-modal__contacts {
+            margin-top: 0.521vw;
+        }
+
+        #section1 .fraud-modal__contacts p {
+            margin: 0 0 0.417vw;
+        }
+
+        @media (max-width: 768px) {
+            #section1 .fraud-modal {
+                padding: 4.167vw;
+            }
+
+            #section1 .fraud-modal__dialog {
+                max-width: none;
+                padding: 6.25vw 5.208vw 5.208vw;
+            }
+
+            #section1 .fraud-modal__close {
+                top: 2.604vw;
+                right: 2.604vw;
+                font-size: 5.208vw;
+            }
+
+            #section1 .fraud-modal__title {
+                font-size: 3.646vw;
+                margin: 0 6.25vw 3.125vw 0;
+            }
+
+            #section1 .fraud-modal__body {
+                font-size: 2.604vw;
+            }
+
+            #section1 .fraud-modal__body p {
+                margin-bottom: 2.604vw;
+            }
+        }
+
+        @media (max-width: 425px) {
+            #section1 .fraud-modal__title {
+                font-size: 4.706vw;
+            }
+
+            #section1 .fraud-modal__body {
+                font-size: 3.294vw;
+            }
+        }
+
+        #section1 .banner-search {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            width: 100%;
+            max-width: 100%;
+            padding: 8.333vw 5.646vw 3.125vw;
+            pointer-events: none;
+        }
+
+        #section1 .banner-search>* {
+            pointer-events: auto;
+            max-width: 100%;
+        }
+
+        #section1 .banner-search__title {
+            margin: 0 0 2.083vw;
+            color: #FFF;
+            font-family: Inter, sans-serif;
+            font-size: 3.125vw;
+            font-weight: 700;
+            line-height: 1.15;
+            max-width: 100%;
+        }
+
+        #section1 .banner-search__form {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #section1 .banner-search__fields {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #section1 .banner-search__row {
+            display: flex;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.042vw;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #section1 .banner-search__field {
+            flex: 1 1 15.625vw;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        #section1 .banner-search__field--location {
+            flex: 1;
+        }
+
+        #section1 .banner-search__field label {
+            display: block;
+            margin-bottom: 0.417vw;
+            color: #FFF;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        #section1 .banner-search__field input {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 0.313vw;
+            padding: 0.833vw 1.042vw;
+            background: #FFF;
+            color: #1A1A1A;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        #section1 .banner-search__field input::placeholder {
+            color: #999;
+        }
+
+        #section1 .banner-search__more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.313vw;
+            color: #FFF;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        #section1 .banner-search__extras {
+            display: flex;
+            gap: 1.042vw;
+            margin-top: 1.625vw;
+        }
+
+        #section1 .banner-search__extras-spacer {
+            flex: 1;
+            min-width: 0;
+        }
+
+        #section1 .banner-search__more::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 0.313vw solid transparent;
+            border-right: 0.313vw solid transparent;
+            border-top: 0.417vw solid #FFF;
+        }
+
+        #section1 .banner-search__more:hover {
+            text-decoration: underline;
+        }
+
+        #section1 .banner-search__actions {
+            display: flex;
+            align-items: center;
+            gap: 1.042vw;
+            flex-shrink: 0;
+            padding-bottom: 0;
+        }
+
+        #section1 .banner-search__submit {
+            border: none;
+            border-radius: 0.313vw;
+            padding: 0.833vw 1.563vw;
+            background: #21C25C;
+            color: #FFF;
+            font-family: Inter, sans-serif;
+            font-size: 0.938vw;
+            font-weight: 700;
+            line-height: 1.4;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        #section1 .banner-search__submit:hover {
+            background: #00B34A;
+        }
+
+        #section1 .banner-search__clear {
+            color: #FFF;
+            font-family: Inter, sans-serif;
+            font-size: 0.833vw;
+            font-weight: 500;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        #section1 .banner-search__clear:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1440px) {
+            #section1 .banner-search {
+                padding: 7.292vw 5.646vw 2.778vw;
+            }
+
+            #section1 .banner-search__title {
+                font-size: 2.778vw;
+                margin-bottom: 1.736vw;
+            }
+
+            #section1 .banner-search__field label,
+            #section1 .banner-search__field input,
+            #section1 .banner-search__more,
+            #section1 .banner-search__clear {
+                font-size: 0.972vw;
+            }
+
+            #section1 .banner-search__submit {
+                font-size: 0.972vw;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            #section1 .banner-search {
+                padding: 7.813vw 3.125vw 3.125vw;
+            }
+
+            #section1 .banner-search__title {
+                font-size: 4.167vw;
+                margin-bottom: 2.604vw;
+            }
+
+            #section1 .banner-search__row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 2.083vw;
+            }
+
+            #section1 .banner-search__field {
+                flex: 1 1 auto;
+                width: 100%;
+            }
+
+            #section1 .banner-search__field label,
+            #section1 .banner-search__field input,
+            #section1 .banner-search__more,
+            #section1 .banner-search__clear {
+                font-size: 1.563vw;
+            }
+
+            #section1 .banner-search__field input {
+                padding: 1.563vw 2.083vw;
+            }
+
+            #section1 .banner-search__actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            #section1 .banner-search__submit {
+                font-size: 1.75vw;
+                padding: 1.563vw 2.604vw;
+            }
+
+            #section1 .banner-search__extras {
+                margin-top: 1.042vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #section1 .banner-search {
+                padding: 15vw 3.125vw 3.125vw;
+            }
+
+            #section1 .banner-search__title {
+                font-size: 5.208vw;
+                margin-bottom: 3.125vw;
+            }
+
+            #section1 .banner-search__row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 2.604vw;
+            }
+
+            #section1 .banner-search__field label {
+                font-size: 2.083vw;
+                margin-bottom: 1.042vw;
+            }
+
+            #section1 .banner-search__field input {
+                font-size: 2.083vw;
+                padding: 2.083vw 2.604vw;
+                border-radius: 0.781vw;
+            }
+
+            #section1 .banner-search__more {
+                font-size: 2.083vw;
+            }
+
+            #section1 .banner-search__actions {
+                width: 100%;
+                gap: 2.604vw;
+                justify-content: flex-start;
+            }
+
+            #section1 .banner-search__submit {
+                font-size: 2.344vw;
+                padding: 2.083vw 3.906vw;
+                border-radius: 0.781vw;
+            }
+
+            #section1 .banner-search__clear {
+                font-size: 2.083vw;
+            }
+        }
+
+        @media (max-width: 425px) {
+            #section1 .banner-search__title {
+                font-size: 6.588vw;
+            }
+
+            #section1 .banner-search__field label,
+            #section1 .banner-search__field input,
+            #section1 .banner-search__more,
+            #section1 .banner-search__clear {
+                font-size: 3.294vw;
+            }
+
+            #section1 .banner-search__submit {
+                font-size: 3.765vw;
+            }
+        }
+    </style>
+    <div>
+        <!--#include virtual="header.html" -->
+        <picture>
+            <source
+                srcset="https://www.lupin.com/uploads/opportunity_banner_31ff9f610c.png"
+                media="(max-width: 425px)" type="image/png">
+            <img src="https://www.lupin.com/uploads/opportunity_banner_31ff9f610c.png"
+                alt="Banner">
+        </picture>
+        <div class="banner-search">
+            <h1 class="banner-search__title">Search results for</h1>
+            <form class="banner-search__form" action="#" method="get">
+                <div class="banner-search__fields">
+                    <div class="banner-search__row">
+                        <div class="banner-search__field">
+                            <label for="banner-keyword">Search by Keyword</label>
+                            <input type="text" id="banner-keyword" name="keyword"
+                                placeholder="Enter keyword job title or skills">
+                        </div>
+                        <div class="banner-search__field banner-search__field--location">
+                            <label for="banner-location">Search by Location</label>
+                            <input type="text" id="banner-location" name="location"
+                                placeholder="Enter location, city or country">
+                        </div>
+                        <div class="banner-search__actions">
+                            <button type="submit" class="banner-search__submit">Search Jobs</button>
+                            <a href="#" class="banner-search__clear">Clear</a>
+                        </div>
+                    </div>
+                    <div class="banner-search__extras">
+                        <div class="banner-search__extras-spacer">
+                            <a href="#" class="banner-search__more">Show more Options</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="fraud-modal" aria-hidden="true">
+            <div class="fraud-modal__overlay" data-fraud-modal-close></div>
+            <div class="fraud-modal__dialog" role="dialog" aria-modal="true"
+                aria-labelledby="section1-fraud-modal-title">
+                <button type="button" class="fraud-modal__close" data-fraud-modal-close
+                    aria-label="Close recruitment fraud notice">&times;</button>
+                <h2 class="fraud-modal__title" id="section1-fraud-modal-title">Caution Notice – “Recruitment
+                    Fraud”</h2>
+                <div class="fraud-modal__body">
+                    <p>It is hereby cautioned to the general public that in recent past, some individuals and
+                        recruitment agencies have tried to mislead the public by fictitiously claiming to be
+                        employees of Lupin Limited (and/or its group companies) or posing as authorized recruitment
+                        agencies of Lupin Limited (and/or its group companies).</p>
+                    <p>It has been brought to our notice that they send fake e-mails to the potential job seekers
+                        luring them with job offers and appointment letters using the details of Lupin Limited
+                        (and/or its group companies). These individuals / recruitment agencies are misguiding the
+                        job-seekers by promising them well-placed jobs with the company and asking them for a
+                        security deposit for providing return air-fare for the final round of interview. Further,
+                        they are corresponding through fake letterheads and bogus mail id’s of @lupin.com domain
+                        name.</p>
+                    <p>Kindly note that Lupin Limited (and/or its group companies) follows a formal recruitment
+                        process through its own HR department and does not outsource the final selection of
+                        prospective employees to any individuals or agencies. Further, Lupin Limited (and/or its
+                        group companies) does not ask for any security deposit or fees (refundable or non-refundable)
+                        at any stage of recruitment process.</p>
+                    <p>Please be advised that any potential job-seeker willingly corresponding with such individuals
+                        and recruitment agencies in any manner whether by e-mails or otherwise will be doing so at
+                        their own risks and consequences. Lupin Limited (and/or its group companies) strongly
+                        recommends that the potential job-seekers should not respond to such solicitations.</p>
+                    <p>Kindly note that Lupin Limited (and/or its group companies) will not accept any liability for
+                        any loss or damage that may be suffered or incurred directly or indirectly through
+                        correspondence with fraudulent individuals or recruitment agencies and that such
+                        communication should not be treated as an offer or representation from Lupin Limited
+                        (and/or its group companies).</p>
+                    <p>Should you come across any such fraudulent incident or have any information regarding
+                        solicitation for recruitment or employment with Lupin Limited (and/or its group companies),
+                        please assist us in taking appropriate action to curb such mala fide activities.</p>
+                    <div class="fraud-modal__contacts">
+                        <p>You may reach us:</p>
+                        <p>Mr. Raoul Dsouza – <a
+                                href="mailto:raouldsouza@lupin.com">raouldsouza@lupin.com</a> | 022 66402113</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var section = document.getElementById('section1');
+            var modal = section.querySelector('.fraud-modal');
+            var modalDialog = section.querySelector('.fraud-modal__dialog');
+            var closeTriggers = section.querySelectorAll('[data-fraud-modal-close]');
+            var drawer = section.querySelector('.site-header__drawer');
+            var drawerPanel = section.querySelector('.site-header__drawer-panel');
+            var menuBtn = section.querySelector('[data-mobile-menu-open]');
+            var drawerCloseTriggers = section.querySelectorAll('[data-drawer-close]');
+            var drawerTransitionMs = 350;
+            var modalTransitionMs = 350;
+            var drawerCloseTimer;
+            var modalCloseTimer;
+
+            function isModalActive() {
+                return modal.classList.contains('is-open') || modal.classList.contains('is-closing');
+            }
+
+            function syncDrawerLinks() {
+                var desktopNav = section.querySelector('.site-header__nav ul');
+                var drawerNav = section.querySelector('.site-header__drawer-nav ul');
+                var desktopTopLinks = section.querySelector('.site-header__top-links');
+                var drawerTopLinks = section.querySelector('.site-header__drawer-links ul');
+
+                if (desktopNav && drawerNav) {
+                    drawerNav.innerHTML = desktopNav.innerHTML;
+                }
+
+                if (desktopTopLinks && drawerTopLinks) {
+                    drawerTopLinks.innerHTML = '';
+                    desktopTopLinks.querySelectorAll('a').forEach(function (link) {
+                        var item = document.createElement('li');
+                        item.appendChild(link.cloneNode(true));
+                        drawerTopLinks.appendChild(item);
+                    });
+                }
+            }
+
+            function finishDrawerClose() {
+                if (!drawer) {
+                    return;
+                }
+                drawer.classList.remove('is-closing');
+                drawer.setAttribute('aria-hidden', 'true');
+                if (drawerPanel) {
+                    drawerPanel.classList.remove('is-panel-open');
+                }
+                if (!isModalActive()) {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function closeDrawer(instant) {
+                instant = instant === true;
+
+                if (!drawer || (!drawer.classList.contains('is-open') && !drawer.classList.contains('is-closing'))) {
+                    return;
+                }
+
+                if (drawerCloseTimer) {
+                    clearTimeout(drawerCloseTimer);
+                    drawerCloseTimer = null;
+                }
+
+                if (menuBtn) {
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+
+                if (instant) {
+                    if (drawerPanel) {
+                        drawerPanel.classList.remove('is-panel-open');
+                    }
+                    drawer.classList.remove('is-open', 'is-closing');
+                    drawer.setAttribute('aria-hidden', 'true');
+                    if (!isModalActive()) {
+                        document.body.style.overflow = '';
+                    }
+                    return;
+                }
+
+                drawer.classList.remove('is-open');
+                drawer.classList.add('is-closing');
+
+                if (drawerPanel) {
+                    requestAnimationFrame(function () {
+                        drawerPanel.classList.remove('is-panel-open');
+                    });
+
+                    var onTransitionEnd = function (event) {
+                        if (event.target !== drawerPanel) {
+                            return;
+                        }
+                        if (event.propertyName !== 'transform' && event.propertyName !== '-webkit-transform') {
+                            return;
+                        }
+                        drawerPanel.removeEventListener('transitionend', onTransitionEnd);
+                        if (drawerCloseTimer) {
+                            clearTimeout(drawerCloseTimer);
+                            drawerCloseTimer = null;
+                        }
+                        finishDrawerClose();
+                    };
+
+                    drawerPanel.addEventListener('transitionend', onTransitionEnd);
+                    drawerCloseTimer = setTimeout(function () {
+                        drawerPanel.removeEventListener('transitionend', onTransitionEnd);
+                        drawerCloseTimer = null;
+                        finishDrawerClose();
+                    }, drawerTransitionMs + 100);
+                } else {
+                    finishDrawerClose();
+                }
+            }
+
+            function openDrawer() {
+                if (!drawer) {
+                    return;
+                }
+                if (drawerCloseTimer) {
+                    clearTimeout(drawerCloseTimer);
+                    drawerCloseTimer = null;
+                }
+                drawer.classList.remove('is-closing');
+                drawer.classList.add('is-open');
+                drawer.setAttribute('aria-hidden', 'false');
+                if (menuBtn) {
+                    menuBtn.setAttribute('aria-expanded', 'true');
+                }
+                document.body.style.overflow = 'hidden';
+                if (typeof closeLanguageMenu === 'function') {
+                    closeLanguageMenu();
+                }
+                if (drawerPanel) {
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            drawerPanel.classList.add('is-panel-open');
+                        });
+                    });
+                }
+            }
+
+            function finishModalClose() {
+                modal.classList.remove('is-closing');
+                modal.setAttribute('aria-hidden', 'true');
+                if (modalDialog) {
+                    modalDialog.classList.remove('is-dialog-open');
+                }
+                if (!drawer || (!drawer.classList.contains('is-open') && !drawer.classList.contains('is-closing'))) {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function openModal() {
+                closeDrawer(true);
+                if (modalCloseTimer) {
+                    clearTimeout(modalCloseTimer);
+                    modalCloseTimer = null;
+                }
+                modal.classList.remove('is-closing');
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                if (modalDialog) {
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            modalDialog.classList.add('is-dialog-open');
+                        });
+                    });
+                }
+            }
+
+            function closeModal() {
+                if (!modal.classList.contains('is-open') || modal.classList.contains('is-closing')) {
+                    return;
+                }
+
+                if (modalCloseTimer) {
+                    clearTimeout(modalCloseTimer);
+                    modalCloseTimer = null;
+                }
+
+                modal.classList.remove('is-open');
+                modal.classList.add('is-closing');
+
+                if (modalDialog) {
+                    requestAnimationFrame(function () {
+                        modalDialog.classList.remove('is-dialog-open');
+                    });
+
+                    var onModalTransitionEnd = function (event) {
+                        if (event.target !== modalDialog) {
+                            return;
+                        }
+                        if (event.propertyName !== 'opacity' && event.propertyName !== 'transform') {
+                            return;
+                        }
+                        modalDialog.removeEventListener('transitionend', onModalTransitionEnd);
+                        if (modalCloseTimer) {
+                            clearTimeout(modalCloseTimer);
+                            modalCloseTimer = null;
+                        }
+                        finishModalClose();
+                    };
+
+                    modalDialog.addEventListener('transitionend', onModalTransitionEnd);
+                    modalCloseTimer = setTimeout(function () {
+                        modalDialog.removeEventListener('transitionend', onModalTransitionEnd);
+                        modalCloseTimer = null;
+                        finishModalClose();
+                    }, modalTransitionMs + 100);
+                } else {
+                    finishModalClose();
+                }
+            }
+
+            syncDrawerLinks();
+            openModal();
+
+            section.addEventListener('click', function (event) {
+                var fraudLink = event.target.closest('[data-fraud-modal-open]');
+                if (fraudLink && section.contains(fraudLink)) {
+                    event.preventDefault();
+                    openModal();
+                }
+            });
+
+            closeTriggers.forEach(function (trigger) {
+                trigger.addEventListener('click', closeModal);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && modal.classList.contains('is-open') && !modal.classList.contains('is-closing')) {
+                    closeModal();
+                }
+            });
+
+            var language = section.querySelector('.site-header__language');
+            var languageBtn = section.querySelector('.site-header__language-btn');
+
+            function openLanguageMenu() {
+                language.classList.add('is-open');
+                languageBtn.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeLanguageMenu() {
+                language.classList.remove('is-open');
+                languageBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            if (languageBtn) {
+                languageBtn.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    if (language.classList.contains('is-open')) {
+                        closeLanguageMenu();
+                    } else {
+                        openLanguageMenu();
+                    }
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (language && language.classList.contains('is-open') && !language.contains(event.target)) {
+                    closeLanguageMenu();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && language && language.classList.contains('is-open')) {
+                    closeLanguageMenu();
+                }
+            });
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    if (drawer.classList.contains('is-open')) {
+                        closeDrawer();
+                    } else {
+                        openDrawer();
+                    }
+                });
+            }
+
+            drawerCloseTriggers.forEach(function (trigger) {
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    closeDrawer(false);
+                });
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
+                    closeDrawer();
+                }
+            });
+        })();
+    </script>
+</section>
