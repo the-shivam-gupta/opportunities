@@ -447,14 +447,25 @@
                 position: fixed;
                 inset: 0;
                 z-index: 1000;
-                display: none;
+                display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 2.083vw;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            #section1 .fraud-modal.is-open,
+            #section1 .fraud-modal.is-closing {
+                visibility: visible;
             }
 
             #section1 .fraud-modal.is-open {
-                display: flex;
+                pointer-events: auto;
+            }
+
+            #section1 .fraud-modal.is-closing {
+                pointer-events: none;
             }
 
             #section1 .fraud-modal__overlay {
@@ -462,6 +473,12 @@
                 inset: 0;
                 background: rgba(0, 0, 0, 0.55);
                 backdrop-filter: blur(2px);
+                opacity: 0;
+                transition: opacity 0.35s ease;
+            }
+
+            #section1 .fraud-modal.is-open .fraud-modal__overlay {
+                opacity: 1;
             }
 
             #section1 .fraud-modal__dialog {
@@ -475,6 +492,16 @@
                 border: 0.052vw solid #d9d9d9;
                 box-shadow: 0 0.417vw 1.667vw rgba(0, 0, 0, 0.18);
                 padding: 2.604vw 2.604vw 2.083vw;
+                opacity: 0;
+                transform: scale(0.96) translateY(1.042vw);
+                transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: opacity, transform;
+            }
+
+            #section1 .fraud-modal__dialog.is-dialog-open {
+                opacity: 1;
+                transform: scale(1) translateY(0);
             }
 
             #section1 .fraud-modal__close {
@@ -1281,13 +1308,20 @@
             (function () {
                 var section = document.getElementById('section1');
                 var modal = section.querySelector('.fraud-modal');
+                var modalDialog = section.querySelector('.fraud-modal__dialog');
                 var closeTriggers = section.querySelectorAll('[data-fraud-modal-close]');
                 var drawer = section.querySelector('.site-header__drawer');
                 var drawerPanel = section.querySelector('.site-header__drawer-panel');
                 var menuBtn = section.querySelector('[data-mobile-menu-open]');
                 var drawerCloseTriggers = section.querySelectorAll('[data-drawer-close]');
                 var drawerTransitionMs = 350;
+                var modalTransitionMs = 350;
                 var drawerCloseTimer;
+                var modalCloseTimer;
+
+                function isModalActive() {
+                    return modal.classList.contains('is-open') || modal.classList.contains('is-closing');
+                }
 
                 function syncDrawerLinks() {
                     var desktopNav = section.querySelector('.site-header__nav ul');
@@ -1318,7 +1352,7 @@
                     if (drawerPanel) {
                         drawerPanel.classList.remove('is-panel-open');
                     }
-                    if (!modal.classList.contains('is-open')) {
+                    if (!isModalActive()) {
                         document.body.style.overflow = '';
                     }
                 }
@@ -1345,7 +1379,7 @@
                         }
                         drawer.classList.remove('is-open', 'is-closing');
                         drawer.setAttribute('aria-hidden', 'true');
-                        if (!modal.classList.contains('is-open')) {
+                        if (!isModalActive()) {
                             document.body.style.overflow = '';
                         }
                         return;
@@ -1412,18 +1446,77 @@
                     }
                 }
 
+                function finishModalClose() {
+                    modal.classList.remove('is-closing');
+                    modal.setAttribute('aria-hidden', 'true');
+                    if (modalDialog) {
+                        modalDialog.classList.remove('is-dialog-open');
+                    }
+                    if (!drawer || (!drawer.classList.contains('is-open') && !drawer.classList.contains('is-closing'))) {
+                        document.body.style.overflow = '';
+                    }
+                }
+
                 function openModal() {
                     closeDrawer(true);
+                    if (modalCloseTimer) {
+                        clearTimeout(modalCloseTimer);
+                        modalCloseTimer = null;
+                    }
+                    modal.classList.remove('is-closing');
                     modal.classList.add('is-open');
                     modal.setAttribute('aria-hidden', 'false');
                     document.body.style.overflow = 'hidden';
+                    if (modalDialog) {
+                        requestAnimationFrame(function () {
+                            requestAnimationFrame(function () {
+                                modalDialog.classList.add('is-dialog-open');
+                            });
+                        });
+                    }
                 }
 
                 function closeModal() {
+                    if (!modal.classList.contains('is-open') || modal.classList.contains('is-closing')) {
+                        return;
+                    }
+
+                    if (modalCloseTimer) {
+                        clearTimeout(modalCloseTimer);
+                        modalCloseTimer = null;
+                    }
+
                     modal.classList.remove('is-open');
-                    modal.setAttribute('aria-hidden', 'true');
-                    if (!drawer || (!drawer.classList.contains('is-open') && !drawer.classList.contains('is-closing'))) {
-                        document.body.style.overflow = '';
+                    modal.classList.add('is-closing');
+
+                    if (modalDialog) {
+                        requestAnimationFrame(function () {
+                            modalDialog.classList.remove('is-dialog-open');
+                        });
+
+                        var onModalTransitionEnd = function (event) {
+                            if (event.target !== modalDialog) {
+                                return;
+                            }
+                            if (event.propertyName !== 'opacity' && event.propertyName !== 'transform') {
+                                return;
+                            }
+                            modalDialog.removeEventListener('transitionend', onModalTransitionEnd);
+                            if (modalCloseTimer) {
+                                clearTimeout(modalCloseTimer);
+                                modalCloseTimer = null;
+                            }
+                            finishModalClose();
+                        };
+
+                        modalDialog.addEventListener('transitionend', onModalTransitionEnd);
+                        modalCloseTimer = setTimeout(function () {
+                            modalDialog.removeEventListener('transitionend', onModalTransitionEnd);
+                            modalCloseTimer = null;
+                            finishModalClose();
+                        }, modalTransitionMs + 100);
+                    } else {
+                        finishModalClose();
                     }
                 }
 
@@ -1443,7 +1536,7 @@
                 });
 
                 document.addEventListener('keydown', function (event) {
-                    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                    if (event.key === 'Escape' && modal.classList.contains('is-open') && !modal.classList.contains('is-closing')) {
                         closeModal();
                     }
                 });
