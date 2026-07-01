@@ -602,20 +602,9 @@
             function syncDrawerLinks() {
                 var desktopNav = section.querySelector('.site-header__nav ul');
                 var drawerNav = section.querySelector('.site-header__drawer-nav ul');
-                var desktopTopLinks = section.querySelector('.site-header__top-links');
-                var drawerTopLinks = section.querySelector('.site-header__drawer-links ul');
 
                 if (desktopNav && drawerNav) {
                     drawerNav.innerHTML = desktopNav.innerHTML;
-                }
-
-                if (desktopTopLinks && drawerTopLinks) {
-                    drawerTopLinks.innerHTML = '';
-                    desktopTopLinks.querySelectorAll('a').forEach(function (link) {
-                        var item = document.createElement('li');
-                        item.appendChild(link.cloneNode(true));
-                        drawerTopLinks.appendChild(item);
-                    });
                 }
             }
 
