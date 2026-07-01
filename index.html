@@ -31,6 +31,7 @@
 
             #section1 {
                 position: relative;
+                z-index: 10;
                 overflow-x: clip;
                 max-width: 100%;
             }
@@ -38,7 +39,7 @@
             #section1>div {
                 position: relative;
                 max-width: 100%;
-                overflow: hidden;
+                overflow: visible;
             }
 
             #section1 picture {
@@ -61,11 +62,52 @@
                 left: 0;
                 right: 0;
                 z-index: 10;
+                padding: 0.833vw 3.125vw 1.979vw;
+            }
+
+            #section1 .site-header__actions {
+                display: flex;
+                align-items: flex-end;
+                gap: 1.979vw;
+                flex-shrink: 0;
+            }
+
+            #section1 .site-header__stack {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0.417vw;
+            }
+
+            #section1 .site-header__top-links {
                 display: flex;
                 align-items: center;
+                gap: 2.083vw;
+            }
+
+            #section1 .site-header__top-links a {
+                color: #FFF;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.25vw;
+                letter-spacing: 0.021vw;
+                text-decoration: none;
+                white-space: nowrap;
+                transition: color 0.2s ease;
+            }
+
+            #section1 .site-header__top-links a:hover {
+                color: #E7FF00;
+            }
+
+            #section1 .site-header__main {
+                display: flex;
+                align-items: flex-end;
                 justify-content: space-between;
                 gap: 1.979vw;
-                padding: 1.979vw 3.125vw;
+                width: 100%;
             }
 
             #section1 .site-header__logo {
@@ -86,7 +128,7 @@
             }
 
             #section1 .site-header__nav ul,
-            #section1 .site-header__utility ul {
+            #section1 .site-header__utility > ul {
                 display: flex;
                 align-items: center;
                 gap: 2.083vw;
@@ -96,7 +138,7 @@
             }
 
             #section1 .site-header__nav li,
-            #section1 .site-header__utility li {
+            #section1 .site-header__utility > ul > li {
                 color: #FFF;
                 font-family: Inter, sans-serif;
                 font-size: 1.042vw;
@@ -108,16 +150,16 @@
             }
 
             #section1 .site-header__nav li a,
-            #section1 .site-header__utility li a {
+            #section1 .site-header__utility > ul > li > a {
                 color: inherit;
                 text-decoration: none;
                 padding-bottom: 0.417vw;
-                border-bottom: 0.104vw solid transparent;
+                border-bottom: 0.154vw solid transparent;
                 transition: color 0.2s ease, border-color 0.2s ease;
             }
 
             #section1 .site-header__nav li a:hover,
-            #section1 .site-header__utility li a:hover {
+            #section1 .site-header__utility > ul > li > a:hover {
                 color: #E7FF00;
                 font-weight: 500;
                 border-bottom-color: #E7FF00;
@@ -159,9 +201,98 @@
                 width: 1.146vw;
                 height: 1.146vw;
             }
+            #section1 .site-header__icons img:hover{
+                opacity: 0.8;
+                transform: scale(1.1);
+                transition: transform 0.2s ease;
+            }
+
+            #section1 .site-header__language {
+                position: relative;
+            }
+
+            #section1 .site-header__language-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            #section1 .site-header__language-menu {
+                position: absolute;
+                top: calc(100% + 0.625vw);
+                right: 0;
+                z-index: 200;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                min-width: 10.417vw;
+                width: max-content;
+                margin: 0;
+                padding: 0.417vw 0;
+                list-style: none;
+                background: #FFF;
+                border-radius: 0.521vw;
+                box-shadow: 0 0.208vw 1.042vw rgba(0, 0, 0, 0.12);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-0.208vw);
+                transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            }
+
+            #section1 .site-header__language.is-open .site-header__language-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            #section1 .site-header__language-menu li {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                color: #000;
+                line-height: normal;
+                letter-spacing: normal;
+            }
+
+            #section1 .site-header__language-menu a {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 0.625vw;
+                width: 100%;
+                padding: 0.521vw 1.042vw;
+                color: #000;
+                font-family: Inter, sans-serif;
+                font-size: 0.833vw;
+                font-weight: 500;
+                line-height: 1.25vw;
+                text-decoration: none;
+                white-space: nowrap;
+                border-bottom: 0;
+                transition: background-color 0.2s ease, color 0.2s ease;
+            }
+
+            #section1 .site-header__language-menu a:hover,
+            #section1 .site-header__language-menu a.is-active {
+                background: #E8F5E9;
+                color: #069C3C;
+            }
+
+            #section1 .site-header__language-menu img {
+                display: block;
+                width: 1.25vw;
+                height: 1.25vw;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
 
             #section1 .site-header__menu {
-                margin-left: auto;
                 flex-shrink: 0;
             }
 
@@ -187,9 +318,242 @@
                 height: 1.354vw;
             }
 
+            #section1 .site-header__drawer {
+                position: fixed;
+                inset: 0;
+                z-index: 100;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            #section1 .site-header__drawer.is-open,
+            #section1 .site-header__drawer.is-closing {
+                visibility: visible;
+            }
+
+            #section1 .site-header__drawer.is-open {
+                pointer-events: auto;
+            }
+
+            #section1 .site-header__drawer.is-closing {
+                pointer-events: none;
+            }
+
+            #section1 .site-header__drawer-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.45);
+                opacity: 0;
+                transition: opacity 0.35s ease;
+            }
+
+            #section1 .site-header__drawer.is-open .site-header__drawer-overlay {
+                opacity: 1;
+            }
+
+            #section1 .site-header__drawer-panel {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: min(88vw, 22.917vw);
+                max-width: 100%;
+                height: 100%;
+                background: #FFF;
+                transform: translate3d(100%, 0, 0);
+                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                box-shadow: -0.208vw 0 1.042vw rgba(0, 0, 0, 0.12);
+                will-change: transform;
+            }
+
+            #section1 .site-header__drawer-panel.is-panel-open {
+                transform: translate3d(0, 0, 0);
+            }
+
+            #section1 .site-header__drawer-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.042vw 1.25vw;
+                border-bottom: 0.052vw solid rgba(0, 0, 0, 0.08);
+            }
+
+            #section1 .site-header__drawer-title {
+                margin: 0;
+                color: #069C3C;
+                font-family: Inter, sans-serif;
+                font-size: 1.042vw;
+                font-weight: 700;
+                letter-spacing: 0.052vw;
+            }
+
+            #section1 .site-header__drawer-close {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.083vw;
+                height: 2.083vw;
+                padding: 0;
+                border: 0;
+                border-radius: 50%;
+                background: transparent;
+                color: #333;
+                font-size: 1.667vw;
+                line-height: 1;
+                cursor: pointer;
+            }
+
+            #section1 .site-header__drawer-body {
+                padding: 0.833vw 0 1.667vw;
+            }
+
+            #section1 .site-header__drawer-nav ul,
+            #section1 .site-header__drawer-links ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            #section1 .site-header__drawer-nav a,
+            #section1 .site-header__drawer-links a {
+                display: block;
+                padding: 0.729vw 1.25vw;
+                color: #1A1A1A;
+                font-family: Inter, sans-serif;
+                font-size: 0.938vw;
+                font-weight: 500;
+                line-height: 1.4;
+                text-decoration: none;
+                transition: background-color 0.2s ease, color 0.2s ease;
+            }
+
+            #section1 .site-header__drawer-nav a:hover,
+            #section1 .site-header__drawer-links a:hover {
+                background: #E8F5E9;
+                color: #069C3C;
+            }
+
+            #section1 .site-header__drawer-section {
+                padding: 0.625vw 0;
+                border-bottom: 0.052vw solid rgba(0, 0, 0, 0.08);
+            }
+
+            #section1 .site-header__drawer-section:last-child {
+                border-bottom: 0;
+            }
+
+            #section1 .fraud-modal {
+                position: fixed;
+                inset: 0;
+                z-index: 1000;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 2.083vw;
+            }
+
+            #section1 .fraud-modal.is-open {
+                display: flex;
+            }
+
+            #section1 .fraud-modal__overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.55);
+                backdrop-filter: blur(2px);
+            }
+
+            #section1 .fraud-modal__dialog {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                max-width: 65vw;
+                max-height: 90vh;
+                overflow-y: auto;
+                background: #f8f8f8;
+                border: 0.052vw solid #d9d9d9;
+                box-shadow: 0 0.417vw 1.667vw rgba(0, 0, 0, 0.18);
+                padding: 2.604vw 2.604vw 2.083vw;
+            }
+
+            #section1 .fraud-modal__close {
+                position: absolute;
+                top: 1.042vw;
+                right: 1.042vw;
+                border: none;
+                background: transparent;
+                color: #000;
+                font-size: 1.667vw;
+                font-weight: 700;
+                line-height: 1;
+                cursor: pointer;
+                padding: 0.208vw 0.417vw;
+            }
+
+            #section1 .fraud-modal__title {
+                color: #4b2c85;
+                font-family: Inter, sans-serif;
+                font-size: 1.458vw;
+                font-weight: 700;
+                line-height: 1.4;
+                margin: 0 2.604vw 1.563vw 0;
+            }
+
+            #section1 .fraud-modal__body {
+                color: #333;
+                font-family: Inter, sans-serif;
+                font-size: 0.700vw;
+                font-weight: 400;
+                line-height: 1.65;
+            }
+
+            #section1 .fraud-modal__body p {
+                margin: 0 0 1.042vw;
+            }
+
+            #section1 .fraud-modal__body p:last-child {
+                margin-bottom: 0;
+            }
+
+            #section1 .fraud-modal__body a {
+                color: #4b2c85;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            #section1 .fraud-modal__body a:hover {
+                text-decoration: underline;
+            }
+
+            #section1 .fraud-modal__contacts {
+                margin-top: 0.521vw;
+            }
+
+            #section1 .fraud-modal__contacts p {
+                margin: 0 0 0.417vw;
+            }
+
             @media (min-width: 1024px) and (max-width: 1440px) {
                 #section1 .site-header {
-                    padding: 0.833vw 1.389vw;
+                    padding: 0.694vw 1.389vw 0.833vw;
+                    gap: 0.278vw;
+                }
+
+                #section1 .site-header__top-links {
+                    gap: 1.389vw;
+                }
+
+                #section1 .site-header__top-links a {
+                    font-size: 0.764vw;
+                    line-height: 1.111vw;
+                }
+
+                #section1 .site-header__main {
+                    gap: 1.389vw;
+                }
+
+                #section1 .site-header__actions {
                     gap: 1.389vw;
                 }
 
@@ -198,12 +562,12 @@
                 }
 
                 #section1 .site-header__nav ul,
-                #section1 .site-header__utility ul {
+                #section1 .site-header__utility > ul {
                     gap: 1.042vw;
                 }
 
                 #section1 .site-header__nav li,
-                #section1 .site-header__utility li {
+                #section1 .site-header__utility > ul > li {
                     font-size: 0.972vw;
                     line-height: 2.083vw;
                     letter-spacing: 0.035vw;
@@ -226,6 +590,21 @@
                     height: 1.25vw;
                 }
 
+                #section1 .site-header__language-menu {
+                    min-width: 12.5vw;
+                }
+
+                #section1 .site-header__language-menu a {
+                    font-size: 0.972vw;
+                    line-height: 1.458vw;
+                    padding: 0.556vw 1.111vw;
+                }
+
+                #section1 .site-header__language-menu img {
+                    width: 1.458vw;
+                    height: 1.458vw;
+                }
+
                 #section1 .site-header__menu-btn {
                     gap: 0.556vw;
                     padding: 0.417vw 0.833vw;
@@ -245,10 +624,43 @@
 
                 #section1 .site-header {
                     padding: 2.083vw 2.604vw;
+                    gap: 0;
+                }
+
+                #section1 .site-header__top-links {
+                    display: none;
                 }
 
                 #section1 .site-header__utility {
                     display: none;
+                }
+
+                #section1 .site-header__drawer-panel {
+                    width: min(88vw, 72vw);
+                }
+
+                #section1 .site-header__drawer-header {
+                    padding: 4.167vw 5.208vw;
+                }
+
+                #section1 .site-header__drawer-title {
+                    font-size: 3.646vw;
+                }
+
+                #section1 .site-header__drawer-close {
+                    width: 8.333vw;
+                    height: 8.333vw;
+                    font-size: 6.25vw;
+                }
+
+                #section1 .site-header__drawer-body {
+                    padding: 2.083vw 0 5.208vw;
+                }
+
+                #section1 .site-header__drawer-nav a,
+                #section1 .site-header__drawer-links a {
+                    padding: 3.125vw 5.208vw;
+                    font-size: 3.125vw;
                 }
 
                 #section1 .site-header__logo img {
@@ -265,6 +677,34 @@
                     width: 2.604vw;
                     height: 2.604vw;
                 }
+
+                #section1 .fraud-modal {
+                    padding: 4.167vw;
+                }
+
+                #section1 .fraud-modal__dialog {
+                    max-width: none;
+                    padding: 6.25vw 5.208vw 5.208vw;
+                }
+
+                #section1 .fraud-modal__close {
+                    top: 2.604vw;
+                    right: 2.604vw;
+                    font-size: 5.208vw;
+                }
+
+                #section1 .fraud-modal__title {
+                    font-size: 3.646vw;
+                    margin: 0 6.25vw 3.125vw 0;
+                }
+
+                #section1 .fraud-modal__body {
+                    font-size: 2.604vw;
+                }
+
+                #section1 .fraud-modal__body p {
+                    margin-bottom: 2.604vw;
+                }
             }
 
             @media (max-width: 425px) {
@@ -277,6 +717,14 @@
                 #section1 .site-header__menu-btn img {
                     width: 4.706vw;
                     height: 4.706vw;
+                }
+
+                #section1 .fraud-modal__title {
+                    font-size: 4.706vw;
+                }
+
+                #section1 .fraud-modal__body {
+                    font-size: 3.294vw;
                 }
             }
 
@@ -575,49 +1023,179 @@
         </style>
         <div>
             <header class="site-header">
-                <a class="site-header__logo" href="#" aria-label="Lupin home">
-                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/Lupin_logo_1_9e84fd5125.svg"
-                        alt="Lupin">
-                </a>
-                <nav class="site-header__nav" aria-label="Main navigation">
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Business</a></li>
-                        <li><a href="#">Investors</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Media</a></li>
-                    </ul>
-                </nav>
-                <div class="site-header__utility">
-                    <ul>
-                        <li><a href="#" class="is-active">Careers</a></li>
-                    </ul>
-                    <span class="site-header__separator" aria-hidden="true"></span>
-                    <ul>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                    <span class="site-header__separator" aria-hidden="true"></span>
-                    <div class="site-header__icons">
-                        <a href="#" aria-label="Language">
-                            <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/globe_1_3a9080765f.svg"
-                                alt="">
-                        </a>
-                        <span class="site-header__separator" aria-hidden="true"></span>
-                        <a href="#" aria-label="Search">
-                            <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/Search_icon_1_ff3e9cce4f.svg"
-                                alt="">
-                        </a>
+                <div class="site-header__main">
+                    <a class="site-header__logo" href="#" aria-label="Lupin home">
+                        <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/Lupin_logo_1_9e84fd5125.svg"
+                            alt="Lupin">
+                    </a>
+                    <nav class="site-header__nav" aria-label="Main navigation">
+                        <ul>
+                            <li><a target="_blank" href="https://www.lupin.com/about-us">About Us</a></li>
+                            <li><a target="_blank" href="https://www.lupin.com/our-business">Our Business</a></li>
+                            <li><a target="_blank" href="https://www.lupin.com/investors">Investors</a></li>
+                            <li><a target="_blank" href="https://www.lupin.com/media">Media</a></li>
+                            <li><a target="_blank" href="https://www.lupin.com/community">Community</a></li>
+                            <li><a target="_blank" href="https://www.lupin.com/sustainability">Sustainability</a></li>
+                        </ul>
+                    </nav>
+                    <div class="site-header__actions">
+                        <div class="site-header__stack">
+                            <nav class="site-header__top-links" aria-label="Top links">
+                                <a href="#" data-fraud-modal-open>Recruitment Fraud Alert</a>
+                                <a href="#">Candidate Login</a>
+                            </nav>
+                            <div class="site-header__utility">
+                                <ul>
+                                    <li><a target="_blank" href="https://career-five-bay.vercel.app/" class="is-active">Careers</a></li>
+                                </ul>
+                                <span class="site-header__separator" aria-hidden="true"></span>
+                                <ul>
+                                    <li><a target="_blank" href="https://www.lupin.com/contact-us">Contact</a></li>
+                                </ul>
+                                <span class="site-header__separator" aria-hidden="true"></span>
+                                <div class="site-header__icons">
+                                    <div class="site-header__language">
+                                        <button type="button" class="site-header__language-btn" aria-label="Language"
+                                            aria-expanded="false" aria-haspopup="true">
+                                            <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/globe_1_3a9080765f.svg"
+                                                alt="">
+                                        </button>
+                                        <ul class="site-header__language-menu" role="menu" aria-label="Language">
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.lupin.com/our-business/india">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/india_ca0dc9a24e.png"
+                                                        alt="India flag icon">
+                                                    <span>India</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.lupin.com/US" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/usa_48433c6b13.png"
+                                                        alt="USA flag icon">
+                                                    <span>USA</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.lupinhealthcare.co.uk/"
+                                                    target="_blank" rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/great_britain_264e4bd495.png"
+                                                        alt="UK flag icon">
+                                                    <span>UK</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.mydynamics.co.za/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://www.lupin.com/assets/country-icons/south-africa.png"
+                                                        alt="South Africa flag icon">
+                                                    <span>South Africa</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://generichealth.com.au/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://www.lupin.com/assets/country-icons/australia.png"
+                                                        alt="Australia flag icon">
+                                                    <span>Australia</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.multicare.com.ph/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/philippines_7327fe815f.png"
+                                                        alt="Philippines flag icon">
+                                                    <span>Philippines</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.hormosan.com/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/germany_26c13e79c9.png"
+                                                        alt="Germany flag icon">
+                                                    <span>Germany</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.nanomi.com/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/netherlands_a0276c65cc.png"
+                                                        alt="Netherlands flag icon">
+                                                    <span>Netherlands</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.laboratoriosgrin.com/"
+                                                    target="_blank" rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/mexico_bd04520ac9.png"
+                                                        alt="Mexico flag icon">
+                                                    <span>Mexico</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://medquimica.ind.br/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/brazil_bba9bcb1ce.png"
+                                                        alt="Brazil flag icon">
+                                                    <span>Brazil</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://www.lupinpharma.ca/" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/canada_563f29b9a0.png"
+                                                        alt="Canada flag icon">
+                                                    <span>Canada</span>
+                                                </a>
+                                            </li>
+                                            <li role="none">
+                                                <a role="menuitem" target="_blank" href="https://lupin-neurosciences.com/our-world/"
+                                                    target="_blank" rel="noopener noreferrer">
+                                                    <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/switzerland_46ecf32666.png"
+                                                        alt="Switzerland flag icon">
+                                                    <span>Switzerland</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span class="site-header__separator" aria-hidden="true"></span>
+                                    <a href="#" aria-label="Search">
+                                        <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/Search_icon_1_ff3e9cce4f.svg"
+                                            alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="site-header__menu">
+                            <button type="button" class="site-header__menu-btn" aria-label="Open menu"
+                                aria-expanded="false" aria-controls="section1-mobile-menu" data-mobile-menu-open>
+                                <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/hamburger_icon_5473136756.svg"
+                                    alt="">
+                                Menu
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="site-header__menu">
-                    <button type="button" class="site-header__menu-btn" aria-label="Open menu">
-                        <img src="https://cmsuatlupin.blob.core.windows.net/public/uploads/hamburger_icon_5473136756.svg"
-                            alt="">
-                        Menu
-                    </button>
-                </div>
             </header>
+            <div class="site-header__drawer" aria-hidden="true">
+                <div class="site-header__drawer-overlay" data-drawer-close></div>
+                <div class="site-header__drawer-panel" id="section1-mobile-menu" role="dialog" aria-modal="true"
+                    aria-label="Navigation menu">
+                    <div class="site-header__drawer-header">
+                        <p class="site-header__drawer-title">Menu</p>
+                        <button type="button" class="site-header__drawer-close" data-drawer-close
+                            aria-label="Close menu">&times;</button>
+                    </div>
+                    <div class="site-header__drawer-body">
+                        <nav class="site-header__drawer-nav" aria-label="Main navigation">
+                            <ul></ul>
+                        </nav>
+                        <div class="site-header__drawer-section site-header__drawer-links">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <picture>
                 <source
                     srcset="https://cmsuatlupin.blob.core.windows.net/public/uploads/opportunity_banner_31ff9f610c.png"
@@ -653,7 +1231,284 @@
                     </div>
                 </form>
             </div>
+            <div class="fraud-modal" aria-hidden="true">
+                <div class="fraud-modal__overlay" data-fraud-modal-close></div>
+                <div class="fraud-modal__dialog" role="dialog" aria-modal="true"
+                    aria-labelledby="section1-fraud-modal-title">
+                    <button type="button" class="fraud-modal__close" data-fraud-modal-close
+                        aria-label="Close recruitment fraud notice">&times;</button>
+                    <h2 class="fraud-modal__title" id="section1-fraud-modal-title">Caution Notice – “Recruitment
+                        Fraud”</h2>
+                    <div class="fraud-modal__body">
+                        <p>It is hereby cautioned to the general public that in recent past, some individuals and
+                            recruitment agencies have tried to mislead the public by fictitiously claiming to be
+                            employees of Lupin Limited (and/or its group companies) or posing as authorized recruitment
+                            agencies of Lupin Limited (and/or its group companies).</p>
+                        <p>It has been brought to our notice that they send fake e-mails to the potential job seekers
+                            luring them with job offers and appointment letters using the details of Lupin Limited
+                            (and/or its group companies). These individuals / recruitment agencies are misguiding the
+                            job-seekers by promising them well-placed jobs with the company and asking them for a
+                            security deposit for providing return air-fare for the final round of interview. Further,
+                            they are corresponding through fake letterheads and bogus mail id’s of @lupin.com domain
+                            name.</p>
+                        <p>Kindly note that Lupin Limited (and/or its group companies) follows a formal recruitment
+                            process through its own HR department and does not outsource the final selection of
+                            prospective employees to any individuals or agencies. Further, Lupin Limited (and/or its
+                            group companies) does not ask for any security deposit or fees (refundable or non-refundable)
+                            at any stage of recruitment process.</p>
+                        <p>Please be advised that any potential job-seeker willingly corresponding with such individuals
+                            and recruitment agencies in any manner whether by e-mails or otherwise will be doing so at
+                            their own risks and consequences. Lupin Limited (and/or its group companies) strongly
+                            recommends that the potential job-seekers should not respond to such solicitations.</p>
+                        <p>Kindly note that Lupin Limited (and/or its group companies) will not accept any liability for
+                            any loss or damage that may be suffered or incurred directly or indirectly through
+                            correspondence with fraudulent individuals or recruitment agencies and that such
+                            communication should not be treated as an offer or representation from Lupin Limited
+                            (and/or its group companies).</p>
+                        <p>Should you come across any such fraudulent incident or have any information regarding
+                            solicitation for recruitment or employment with Lupin Limited (and/or its group companies),
+                            please assist us in taking appropriate action to curb such mala fide activities.</p>
+                        <div class="fraud-modal__contacts">
+                            <p>You may reach us:</p>
+                            <p>Mr. Raoul Dsouza – <a
+                                    href="mailto:raouldsouza@lupin.com">raouldsouza@lupin.com</a> | 022 66402113</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            (function () {
+                var section = document.getElementById('section1');
+                var modal = section.querySelector('.fraud-modal');
+                var closeTriggers = section.querySelectorAll('[data-fraud-modal-close]');
+                var drawer = section.querySelector('.site-header__drawer');
+                var drawerPanel = section.querySelector('.site-header__drawer-panel');
+                var menuBtn = section.querySelector('[data-mobile-menu-open]');
+                var drawerCloseTriggers = section.querySelectorAll('[data-drawer-close]');
+                var drawerTransitionMs = 350;
+                var drawerCloseTimer;
+
+                function syncDrawerLinks() {
+                    var desktopNav = section.querySelector('.site-header__nav ul');
+                    var drawerNav = section.querySelector('.site-header__drawer-nav ul');
+                    var desktopTopLinks = section.querySelector('.site-header__top-links');
+                    var drawerTopLinks = section.querySelector('.site-header__drawer-links ul');
+
+                    if (desktopNav && drawerNav) {
+                        drawerNav.innerHTML = desktopNav.innerHTML;
+                    }
+
+                    if (desktopTopLinks && drawerTopLinks) {
+                        drawerTopLinks.innerHTML = '';
+                        desktopTopLinks.querySelectorAll('a').forEach(function (link) {
+                            var item = document.createElement('li');
+                            item.appendChild(link.cloneNode(true));
+                            drawerTopLinks.appendChild(item);
+                        });
+                    }
+                }
+
+                function finishDrawerClose() {
+                    if (!drawer) {
+                        return;
+                    }
+                    drawer.classList.remove('is-closing');
+                    drawer.setAttribute('aria-hidden', 'true');
+                    if (drawerPanel) {
+                        drawerPanel.classList.remove('is-panel-open');
+                    }
+                    if (!modal.classList.contains('is-open')) {
+                        document.body.style.overflow = '';
+                    }
+                }
+
+                function closeDrawer(instant) {
+                    instant = instant === true;
+
+                    if (!drawer || (!drawer.classList.contains('is-open') && !drawer.classList.contains('is-closing'))) {
+                        return;
+                    }
+
+                    if (drawerCloseTimer) {
+                        clearTimeout(drawerCloseTimer);
+                        drawerCloseTimer = null;
+                    }
+
+                    if (menuBtn) {
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+
+                    if (instant) {
+                        if (drawerPanel) {
+                            drawerPanel.classList.remove('is-panel-open');
+                        }
+                        drawer.classList.remove('is-open', 'is-closing');
+                        drawer.setAttribute('aria-hidden', 'true');
+                        if (!modal.classList.contains('is-open')) {
+                            document.body.style.overflow = '';
+                        }
+                        return;
+                    }
+
+                    drawer.classList.remove('is-open');
+                    drawer.classList.add('is-closing');
+
+                    if (drawerPanel) {
+                        requestAnimationFrame(function () {
+                            drawerPanel.classList.remove('is-panel-open');
+                        });
+
+                        var onTransitionEnd = function (event) {
+                            if (event.target !== drawerPanel) {
+                                return;
+                            }
+                            if (event.propertyName !== 'transform' && event.propertyName !== '-webkit-transform') {
+                                return;
+                            }
+                            drawerPanel.removeEventListener('transitionend', onTransitionEnd);
+                            if (drawerCloseTimer) {
+                                clearTimeout(drawerCloseTimer);
+                                drawerCloseTimer = null;
+                            }
+                            finishDrawerClose();
+                        };
+
+                        drawerPanel.addEventListener('transitionend', onTransitionEnd);
+                        drawerCloseTimer = setTimeout(function () {
+                            drawerPanel.removeEventListener('transitionend', onTransitionEnd);
+                            drawerCloseTimer = null;
+                            finishDrawerClose();
+                        }, drawerTransitionMs + 100);
+                    } else {
+                        finishDrawerClose();
+                    }
+                }
+
+                function openDrawer() {
+                    if (!drawer) {
+                        return;
+                    }
+                    if (drawerCloseTimer) {
+                        clearTimeout(drawerCloseTimer);
+                        drawerCloseTimer = null;
+                    }
+                    drawer.classList.remove('is-closing');
+                    drawer.classList.add('is-open');
+                    drawer.setAttribute('aria-hidden', 'false');
+                    if (menuBtn) {
+                        menuBtn.setAttribute('aria-expanded', 'true');
+                    }
+                    document.body.style.overflow = 'hidden';
+                    if (typeof closeLanguageMenu === 'function') {
+                        closeLanguageMenu();
+                    }
+                    if (drawerPanel) {
+                        requestAnimationFrame(function () {
+                            requestAnimationFrame(function () {
+                                drawerPanel.classList.add('is-panel-open');
+                            });
+                        });
+                    }
+                }
+
+                function openModal() {
+                    closeDrawer(true);
+                    modal.classList.add('is-open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal() {
+                    modal.classList.remove('is-open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    if (!drawer || (!drawer.classList.contains('is-open') && !drawer.classList.contains('is-closing'))) {
+                        document.body.style.overflow = '';
+                    }
+                }
+
+                syncDrawerLinks();
+                openModal();
+
+                section.addEventListener('click', function (event) {
+                    var fraudLink = event.target.closest('[data-fraud-modal-open]');
+                    if (fraudLink && section.contains(fraudLink)) {
+                        event.preventDefault();
+                        openModal();
+                    }
+                });
+
+                closeTriggers.forEach(function (trigger) {
+                    trigger.addEventListener('click', closeModal);
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                        closeModal();
+                    }
+                });
+
+                var language = section.querySelector('.site-header__language');
+                var languageBtn = section.querySelector('.site-header__language-btn');
+
+                function openLanguageMenu() {
+                    language.classList.add('is-open');
+                    languageBtn.setAttribute('aria-expanded', 'true');
+                }
+
+                function closeLanguageMenu() {
+                    language.classList.remove('is-open');
+                    languageBtn.setAttribute('aria-expanded', 'false');
+                }
+
+                if (languageBtn) {
+                    languageBtn.addEventListener('click', function (event) {
+                        event.stopPropagation();
+                        if (language.classList.contains('is-open')) {
+                            closeLanguageMenu();
+                        } else {
+                            openLanguageMenu();
+                        }
+                    });
+                }
+
+                document.addEventListener('click', function (event) {
+                    if (language && language.classList.contains('is-open') && !language.contains(event.target)) {
+                        closeLanguageMenu();
+                    }
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape' && language && language.classList.contains('is-open')) {
+                        closeLanguageMenu();
+                    }
+                });
+
+                if (menuBtn) {
+                    menuBtn.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        if (drawer.classList.contains('is-open')) {
+                            closeDrawer();
+                        } else {
+                            openDrawer();
+                        }
+                    });
+                }
+
+                drawerCloseTriggers.forEach(function (trigger) {
+                    trigger.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        closeDrawer(false);
+                    });
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
+                        closeDrawer();
+                    }
+                });
+            })();
+        </script>
     </section>
     <!-- section 2 -->
     <section id="section2">
@@ -662,6 +1517,7 @@
 
             #section2 {
                 position: relative;
+                z-index: 1;
             }
 
             #section2>div {
